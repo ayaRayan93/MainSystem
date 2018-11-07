@@ -250,7 +250,7 @@ namespace MainSystem.Sales.accounting
                 com.Parameters.Add("@Customer_ID", MySqlDbType.Int16);
                 com.Parameters["@Customer_ID"].Value =Convert.ToInt16(txtCustomerID.Text);
                 com.Parameters.Add("@Client_ID", MySqlDbType.Int16);
-                com.Parameters["@Client_ID"].Value =Convert.ToInt16(txtCustomerID.Text);
+                com.Parameters["@Client_ID"].Value =Convert.ToInt16(txtClientID.Text);
                 if (radioButton1.Checked)
                 {
                     com.Parameters.Add("@Taswaya_Type", MySqlDbType.VarChar);

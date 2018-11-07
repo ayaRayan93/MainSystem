@@ -1350,7 +1350,7 @@ namespace MainSystem
 
                                     /*****************************************************************************************/
                                     DataRowView row1 = (DataRowView)gridView1.GetRow(gridView1.GetSelectedRows()[0]);
-                                    MainForm.objFormBillConfirm.addItemToView(row1, TotalMeters, Convert.ToInt16(comStore.SelectedValue.ToString()), comStore.Text);
+                                    MainForm.objFormBillConfirm.addItemToView(row1, TotalMeters, Convert.ToInt16(comStore.SelectedValue.ToString()), comStore.Text,0);
                                     this.Close();
                                 }
                                 else
