@@ -350,7 +350,7 @@ namespace MainSystem
                 {
                     q5 = txtStoreID.Text;
                 }
-                string query = "SELECT storage.Set_ID as 'كود الطقم',Set_Name as 'اسم الطقم',Type_Name as 'النوع',Factory_Name as 'المصنع',Group_Name as 'المجموعة',SUM(storage.Total_Meters) as 'الكمية',Set_Photo as 'صورة' from sets INNER JOIN type ON type.Type_ID = sets.Type_ID  INNER JOIN factory ON sets.Factory_ID = factory.Factory_ID INNER JOIN groupo ON sets.Group_ID = groupo.Group_ID  inner join storage on storage.Set_ID=sets.Set_ID where sets.Type_ID IN(" + q1 + ") and  sets.Factory_ID  IN(" + q2 + ") and storage.Set_ID IN("+q3+") and sets.Group_ID IN (" + q4 + ") and storage.Store_ID IN ("+q5+ ") order by storage.Set_ID";
+                string query = "SELECT storage.Set_ID as 'كود الطقم',Set_Name as 'اسم الطقم',Type_Name as 'النوع',Factory_Name as 'المصنع',Group_Name as 'المجموعة',SUM(storage.Total_Meters) as 'الكمية',Photo as 'صورة' from sets left Join set_photo on sets.Set_ID=set_photo.Set_ID INNER JOIN type ON type.Type_ID = sets.Type_ID  INNER JOIN factory ON sets.Factory_ID = factory.Factory_ID INNER JOIN groupo ON sets.Group_ID = groupo.Group_ID  inner join storage on storage.Set_ID=sets.Set_ID where sets.Type_ID IN(" + q1 + ") and  sets.Factory_ID  IN(" + q2 + ") and storage.Set_ID IN("+q3+") and sets.Group_ID IN (" + q4 + ")  GROUP by storage.Set_ID";
 
                 MySqlCommand com = new MySqlCommand(query, dbconnection);
                 MySqlDataReader dr = com.ExecuteReader();

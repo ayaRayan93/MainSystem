@@ -345,12 +345,10 @@ namespace MainSystem
             }
             else
             {
-                query = "insert into storage (Store_ID,Store_Name,Storage_Date,Total_Meters,Supplier_Name,Set_ID,Type) values (@Store_ID,@Store_Name,@Storage_Date,@Total_Meters,@Supplier_Name,@Set_ID,@Type)";
+                query = "insert into storage (Store_ID,Storage_Date,Total_Meters,Supplier_Name,Set_ID,Type) values (@Store_ID,@Storage_Date,@Total_Meters,@Supplier_Name,@Set_ID,@Type)";
                 com = new MySqlCommand(query, dbconnection);
                 com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
                 com.Parameters["@Store_ID"].Value = Convert.ToInt16(txtStoreID.Text);
-                com.Parameters.Add("@Store_Name", MySqlDbType.VarChar);
-                com.Parameters["@Store_Name"].Value = comStore.Text;
                 com.Parameters.Add("@Storage_Date", MySqlDbType.Date);
                 com.Parameters["@Storage_Date"].Value = DateTime.Now.ToString("yyyy-MM-dd");
                 com.Parameters.Add("@Total_Meters", MySqlDbType.Decimal);

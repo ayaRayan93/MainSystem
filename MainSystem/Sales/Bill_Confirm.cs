@@ -275,6 +275,7 @@ namespace MainSystem
                         listBoxControlBranchID.Items.Add(comBranch.SelectedValue.ToString());
                         while (dataReader.Read())
                         {
+                            connectionReader3.Close();
                             if (dataReader["Customer_Type"].ToString() == "عميل")
                             {
                                 radClient.Checked = true;
@@ -482,6 +483,25 @@ namespace MainSystem
                     return;
                 GridView view = gridView1 as GridView;
                 view.DeleteRow(view.FocusedRowHandle);
+
+                double sum = 0;
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    sum += Convert.ToDouble(gridView1.GetRowCellDisplayText(i, "الاجمالى").ToString());
+                }
+                labTotalBillPriceBD.Text = "اجمالى الفاتورة = " + sum.ToString();
+
+                double discount = 0;
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    if (gridView1.GetRowCellDisplayText(i, "الخصم").ToString() != "")
+                    {
+                        discount += Convert.ToDouble(gridView1.GetRowCellDisplayText(i, "الخصم").ToString());
+                    }
+                }
+                labTotalDiscount.Text = "اجمالى الخصم = " + discount.ToString();
+
+                labTotalBillPriceAD.Text = "صافى الفاتورة = " + (sum - discount).ToString();
             }
             catch(Exception ex)
             {
@@ -603,8 +623,16 @@ namespace MainSystem
                                     com.Parameters.Add("@Discount", MySqlDbType.Decimal);
                                     com.Parameters["@Discount"].Value = null;
                                 }
-                                com.Parameters.Add("@PriceAD", MySqlDbType.Decimal);
-                                com.Parameters["@PriceAD"].Value = Convert.ToDouble(row1["بعد الخصم"].ToString());
+                                if (row1["بعد الخصم"].ToString() != "")
+                                {
+                                    com.Parameters.Add("@PriceAD", MySqlDbType.Decimal);
+                                    com.Parameters["@PriceAD"].Value = Convert.ToDouble(row1["بعد الخصم"].ToString());
+                                }
+                                else
+                                {
+                                    com.Parameters.Add("@PriceAD", MySqlDbType.Decimal);
+                                    com.Parameters["@PriceAD"].Value = null;
+                                }
                                 com.Parameters.Add("@Quantity", MySqlDbType.Decimal);
                                 com.Parameters["@Quantity"].Value = Convert.ToDouble(row1["الكمية"].ToString());
                                 com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
@@ -897,7 +925,8 @@ namespace MainSystem
                 }
                 else if (row1["النوع"].ToString() == "عرض" && row1["added"].ToString() != "0")
                 {
-                    string query = "SELECT sum(storage.Total_Meters) as 'الكمية' FROM storage where storage.Store_ID=" + row1["Store_ID"].ToString() + " and storage.Offer_ID=" + gridView1.GetRowCellDisplayText(j, "التسلسل") + " and storage.Type='عرض' group by storage.Offer_ID,storage.Store_ID";
+                    //storage.Store_ID=" + row1["Store_ID"].ToString() + " and  ... ,storage.Store_ID
+                    string query = "SELECT sum(storage.Total_Meters) as 'الكمية' FROM storage where  storage.Offer_ID=" + gridView1.GetRowCellDisplayText(j, "التسلسل") + " and storage.Type='عرض' group by storage.Offer_ID";
                     MySqlCommand com = new MySqlCommand(query, dbconnection);
                     if (com.ExecuteScalar() != null)
                     {

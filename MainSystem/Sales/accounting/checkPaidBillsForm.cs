@@ -35,99 +35,6 @@ namespace MainSystem
             dbconnection.Close();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                dbconnection.Open();
-                if (e.ColumnIndex == dataGridView1.Columns["PaidOrNot"].Index)
-                {
-                    DataGridViewRow row = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
-                    DataGridViewCheckBoxCell x =row.Cells["PaidOrNot"] as DataGridViewCheckBoxCell;
-                  
-                    
-                    if (recivedMoney >= Convert.ToDouble(row.Cells["اجمالي الفاتورة"].Value))
-                    {
-                        if (Convert.ToBoolean(row.Cells["PaidOrNot"].EditedFormattedValue) == false)
-                        {
-                            recivedMoney -= Convert.ToDouble(row.Cells["اجمالي الفاتورة"].Value);
-                            labRecivedMoney.Text = recivedMoney.ToString();
-                            string query = "update customer_bill set Paid_Status=1 where Dash_Bill_ID=" + row.Cells["رقم الفاتورة"].Value.ToString();
-                            MySqlCommand com = new MySqlCommand(query, dbconnection);
-                            com.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            recivedMoney += Convert.ToDouble(row.Cells["اجمالي الفاتورة"].Value);
-                            labRecivedMoney.Text = recivedMoney.ToString();
-                            string query = "update customer_bill set Paid_Status=0 where Dash_Bill_ID=" + row.Cells["رقم الفاتورة"].Value.ToString();
-                            MySqlCommand com = new MySqlCommand(query, dbconnection);
-                            com.ExecuteNonQuery();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("the amount of bill is bigger than Paid money");
-                        x.Value = x.FalseValue;
-                        dataGridView1.EndEdit();
-                    }
-                   
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            dbconnection.Close();
-        }
-
-        private void btnDone_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dbconnection.Open();
-                if (clientID != -1)
-                {
-                    string query = "select Client_Rest_Money from Client_Rest_Money where Client_ID=" + clientID;
-                    MySqlCommand com = new MySqlCommand(query, dbconnection);
-                    if (com.ExecuteScalar() != null)
-                    {
-                        
-                        double paidMoney = Convert.ToDouble(labRecivedMoney.Text);
-                        query = "update Client_Rest_Money set Client_Rest_Money=" +  paidMoney + " where Client_ID=" + txtClientID.Text;
-                        
-                    }
-                    else
-                    {
-                        query = "insert into Client_Rest_Money (Client_ID,Client_Name,Client_Rest_Money) values (" + clientID + ",'" + comClientName.Text + "'," + labRecivedMoney.Text + ")";
-                    }
-                    com = new MySqlCommand(query, dbconnection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Done");
-                
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            dbconnection.Close();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                MainForm f = new MainForm();
-                f.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void checkPaidBillsForm_Load(object sender, EventArgs e)
         {
             try
@@ -148,7 +55,52 @@ namespace MainSystem
                 MessageBox.Show(ex.Message);
             }
         }
-
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dbconnection.Open();
+                if (e.ColumnIndex == dataGridView1.Columns["PaidOrNot"].Index)
+                {
+                    DataGridViewRow row = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
+                    DataGridViewCheckBoxCell x =row.Cells["PaidOrNot"] as DataGridViewCheckBoxCell;
+                  
+                    
+                    if (recivedMoney >= Convert.ToDouble(row.Cells["اجمالي الفاتورة"].Value))
+                    {
+                        if (Convert.ToBoolean(row.Cells["PaidOrNot"].EditedFormattedValue) == false)
+                        {
+                            recivedMoney -= Convert.ToDouble(row.Cells["اجمالي الفاتورة"].Value);
+                            labRecivedMoney.Text = recivedMoney.ToString();
+                            string query = "update customer_bill set Paid_Status=1 where CustomerBill_ID=" + row.Cells["رقم الفاتورة"].Value.ToString();
+                            MySqlCommand com = new MySqlCommand(query, dbconnection);
+                            com.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            recivedMoney += Convert.ToDouble(row.Cells["اجمالي الفاتورة"].Value);
+                            labRecivedMoney.Text = recivedMoney.ToString();
+                            string query = "update customer_bill set Paid_Status=0 where CustomerBill_ID=" + row.Cells["رقم الفاتورة"].Value.ToString();
+                            MySqlCommand com = new MySqlCommand(query, dbconnection);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("قيمة الفاتورة اكبر من المبلغ المدفوع");
+                        x.Value = x.FalseValue;
+                        dataGridView1.EndEdit();
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
+   
         private void comClientName_SelectedValueChanged(object sender, EventArgs e)
         {
             try
@@ -198,9 +150,41 @@ namespace MainSystem
             }
             dbconnection.Close();
         }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dbconnection.Open();
+                if (clientID != -1)
+                {
+                    string query = "select Money from Client_Rest_Money where Client_ID=" + clientID;
+                    MySqlCommand com = new MySqlCommand(query, dbconnection);
+                    if (com.ExecuteScalar() != null)
+                    {
+                        double paidMoney = Convert.ToDouble(labRecivedMoney.Text);
+                        query = "update Client_Rest_Money set Money=" + paidMoney + " where Client_ID=" + txtClientID.Text;
+                    }
+                    else
+                    {
+                        query = "insert into Client_Rest_Money (Client_ID,Client_Name,Money) values (" + clientID + ",'" + comClientName.Text + "'," + labRecivedMoney.Text + ")";
+                    }
+                    com = new MySqlCommand(query, dbconnection);
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Done");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
+
         public void Display()
         {
-            string query = "select distinct Dash_Bill_ID as 'رقم الفاتورة' ,customer.Customer_Name as ' العميل' ,delegate.Delegate_Name as 'المندوب' , Total_CostAD as 'اجمالي الفاتورة',customer_bill.Branch_Name as 'الفرع',Bill_Date as'التاريخ'  from customer_bill inner join customer on customer_bill.Client_ID=customer.Customer_ID inner join delegate on delegate.Delegate_ID=customer_bill.Delegate_ID where Client_ID=" + clientID + " and Paid_Status=0 and Type_Buy='آجل'";
+            string query = "select distinct CustomerBill_ID as 'رقم الفاتورة' ,customer.Customer_Name as ' العميل'"+/* ,delegate.Delegate_Name as 'المندوب' */""+", Total_CostAD as 'اجمالي الفاتورة',customer_bill.Branch_Name as 'الفرع',Bill_Date as'التاريخ'  from customer_bill inner join customer on customer_bill.Client_ID=customer.Customer_ID "+/*inner join delegate on delegate.Delegate_ID=customer_bill.Delegate_ID */""+"where Client_ID=" + clientID + " and Paid_Status=0 and Type_Buy='آجل'";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -209,15 +193,15 @@ namespace MainSystem
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
             checkColumn.Name = "PaidOrNot";
             checkColumn.HeaderText = "تم الدفع";
-            checkColumn.Width = 50;
+       
             checkColumn.ReadOnly = false;
             checkColumn.FalseValue = false;
             checkColumn.TrueValue = true;
-            checkColumn.FillWeight = 10; //if the datagridview is resized (on form resize) the checkbox won't take up too much; value is relative to the other columns' fill values           
+           // checkColumn.FillWeight = 10; //if the datagridview is resized (on form resize) the checkbox won't take up too much; value is relative to the other columns' fill values           
             dataGridView1.Columns.Add(checkColumn);
-
-            // labClientName.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
-            query = "select Client_Rest_Money from Client_Rest_Money where Client_ID=" + clientID;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            checkColumn.Width = 100;
+            query = "select Money from Client_Rest_Money where Client_ID="+clientID;
             MySqlCommand com = new MySqlCommand(query, dbconnection);
             if (com.ExecuteScalar() != null)
             {

@@ -29,7 +29,6 @@ namespace MainSystem
         bool flagFactoryP = false;//in product tap
         bool flagGroup = false;//in product tap
         bool flagItemCheckGroup = true;
-        bool nonNumberEntered = false;
         List<factory_Group> listFactory_Group = new List<factory_Group>();
         AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
         public ProductItems()
@@ -681,7 +680,6 @@ namespace MainSystem
                                 txtProduct.AutoCompleteMode = AutoCompleteMode.Suggest;
                                 txtProduct.AutoCompleteSource = AutoCompleteSource.CustomSource;
                                 txtProduct.AutoCompleteCustomSource = collection;
-                                nonNumberEntered = true;
                              }
                         break;
                     case "txtSort":
@@ -1265,6 +1263,7 @@ namespace MainSystem
                             }
                         }
 
+                        dbconnection.Open();
                             query = "select Group_ID from groupo order by Group_ID desc limit 1";
                             com = new MySqlCommand(query, dbconnection);
                             UserControl.ItemRecord("groupo", "اضافة",Convert.ToInt16(com.ExecuteScalar().ToString()), DateTime.Now,"", dbconnection);
@@ -1341,7 +1340,7 @@ namespace MainSystem
                                         MessageBox.Show("اختر المصنع");
                                     }
                                 }
-
+                                dbconnection.Open();
                                 query = "select Group_ID from groupo order by Group_ID desc limit 1";
                                 com = new MySqlCommand(query, dbconnection);
                                 UserControl.ItemRecord("groupo", "اضافة", Convert.ToInt16(com.ExecuteScalar().ToString()), DateTime.Now, "", dbconnection);
@@ -2644,7 +2643,7 @@ namespace MainSystem
                 if (comFactory2.Text != "")
                 {
                     dbconnection.Open();
-                    string query = "select Size_ID from size where Size_Value = '" + txtSize.Text + "' and Factory_ID=" + Convert.ToInt16(comFactory2.SelectedValue)+"and Group_ID="+ txtGroup_Size.Text;
+                    string query = "select Size_ID from size where Size_Value = '" + txtSize.Text + "' and Factory_ID=" + Convert.ToInt16(comFactory2.SelectedValue) + " and Group_ID="+ txtGroup_Size.Text;
                     MySqlCommand com = new MySqlCommand(query, dbconnection);
                     if (com.ExecuteScalar() == null)
                     {
@@ -2696,7 +2695,7 @@ namespace MainSystem
                         if (comFactory2.Text != "")
                         {
                             dbconnection.Open();
-                            string query = "select Size_ID from size where Size_Value = '" + txtSize.Text + "' and Factory_ID=" + Convert.ToInt16(comFactory2.SelectedValue);
+                            string query = "select Size_ID from size where Size_Value = '" + txtSize.Text + "' and Factory_ID=" + Convert.ToInt16(comFactory2.SelectedValue)+ " and Group_ID=" + txtGroup_Size.Text; ;
                             MySqlCommand com = new MySqlCommand(query, dbconnection);
                             if (com.ExecuteScalar() == null)
                             {
@@ -2817,7 +2816,7 @@ namespace MainSystem
                 if (e.KeyCode == Keys.Enter)
                 {
                     displaySize_factory((int)comFactory2.SelectedValue);
-                    filterSize_Factory((int)comFactory2.SelectedValue);
+                    filterGroup_Factory((int)comFactory2.SelectedValue);
                     comGroup_Size.Focus();
                 }
             }
@@ -2834,8 +2833,9 @@ namespace MainSystem
                 dbconnection.Open();
                 if (load)
                 {
+                  
+                    filterGroup_Factory((int)comFactory2.SelectedValue);
                     displaySize_factory((int)comFactory2.SelectedValue);
-                    filterSize_Factory((int)comFactory2.SelectedValue);
                     comGroup_Size.Focus();
                   
                 }
@@ -2852,7 +2852,9 @@ namespace MainSystem
             {
                 if (txtFactory3.Text != ""&& Convert.ToInt16(comGroup_Size.SelectedValue.ToString())>0)
                 {
+                   
                     txtGroup_Size.Text = comGroup_Size.SelectedValue.ToString();
+                    displaySize_group();
                     txtSize.Focus();
                 }
             }
@@ -2891,7 +2893,7 @@ namespace MainSystem
 
                         updateTablesDB("size", "Size_ID", id);
 
-                        //UserControl.UserRecord("size", "حذف", row1.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
+                        UserControl.ItemRecord("size", "حذف",Convert.ToInt16(row1.Cells[0].Value.ToString()), DateTime.Now,"", dbconnection);
 
                         if (comFactory2.Text != ""&&comGroup_Size.Text!="")
                         {
@@ -3336,23 +3338,36 @@ namespace MainSystem
             dataGridViewSize.Columns[0].Width = 50;
             dataGridViewSize.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-        public void filterSize_Factory(int id)
+        public void filterGroup_Factory(int id)
         {
-            string query = "";
+            string query = "",q="" ;
+            List<int> ids = new List<int>();
             string fQuery = "select Type_ID from type_Factory where Factory_ID=" +id;
             MySqlCommand com =new MySqlCommand(fQuery, dbconnection);
-            if (com.ExecuteScalar().ToString() == "1" || com.ExecuteScalar().ToString() == "2")
+            MySqlDataReader dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                query = "select * from groupo where Factory_ID in (0)";
+                if (dr[0].ToString() == "1" || dr[0].ToString() == "2")
+                {
+                    ids.Add(0);
+                }
+                else if (dr[0].ToString() == "4")
+                {
+                    ids.Add(-1);
+                }
+                else
+                {
+                    ids.Add(id);
+                }
             }
-            else if (com.ExecuteScalar().ToString() == "4")
+            dr.Close();
+            for (int i = 0; i < ids.Count-1; i++)
             {
-                query = "select * from groupo where Factory_ID= -1";
+                q += ids[i] + ",";
             }
-            else
-            {
-              query = "select * from groupo where Factory_ID= " + comFactory2.SelectedValue ;
-            }
+            q += ids[ids.Count - 1] + "";
+                query = "select * from groupo where Factory_ID in (" + q + ")";
+            
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -3535,20 +3550,7 @@ namespace MainSystem
             }
         }
 
-        private void txtProduct_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (nonNumberEntered == true)
-                {
-                    e.Handled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+     
     }
 
     public class factory_Group

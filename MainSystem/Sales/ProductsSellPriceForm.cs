@@ -614,7 +614,7 @@ namespace MainSystem
             string q1, q2, q3, q4, fQuery = "";
             if (txtType.Text == "")
             {
-                q1 = "select Type_ID from data";
+                q1 = "select Type_ID from type";
             }
             else
             {
@@ -622,7 +622,7 @@ namespace MainSystem
             }
             if (txtFactory.Text == "")
             {
-                q2 = "select Factory_ID from data";
+                q2 = "select Factory_ID from factory";
             }
             else
             {
@@ -630,7 +630,7 @@ namespace MainSystem
             }
             if (txtProduct.Text == "")
             {
-                q3 = "select Product_ID from data";
+                q3 = "select Product_ID from product";
             }
             else
             {
@@ -638,7 +638,7 @@ namespace MainSystem
             }
             if (txtGroup.Text == "")
             {
-                q4 = "select Group_ID from data";
+                q4 = "select Group_ID from groupo";
             }
             else
             {
@@ -663,7 +663,7 @@ namespace MainSystem
                 fQuery += "and data.Classification='" + comClassfication.Text + "'";
             }
 
-            string query = "SELECT data.Data_ID,data.Code as 'الكود',product.Product_Name as 'الصنف',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID where  data.Type_ID IN(" + q1 + ") and  data.Factory_ID  IN(" + q2 + ") and  data.Product_ID  IN(" + q3 + ") and data.Group_ID IN (" + q4 + ") " + fQuery;
+            query = "SELECT SellPrice.SellPrice_ID, data.Code as 'الكود',concat( product.Product_Name,' ',type.Type_Name,' ',factory.Factory_Name,' ',groupo.Group_Name,' ' ,color.Color_Name,' ' ,size.Size_Value )as 'البند',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة',sellprice.Price as 'السعر',sellprice.Last_Price as ' السعر بعد الزيادة',sellprice.Price_Type as 'نوع السعر',sellprice.Sell_Discount as 'خصم البيع',sellprice.Normal_Increase as 'الزيادة العادية',sellprice.Categorical_Increase as 'الزيادة القطعية',sum(additional_increase_sellprice.AdditionalValue)as 'زيادات اضافية',sellprice.ProfitRatio as 'نسبة البيع',sellprice.Sell_Price as 'سعر البيع',sellprice.PercentageDelegate as 'نسية المندوب',sellprice.Date as 'التاريخ'   from data INNER JOIN sellprice on sellprice.Data_ID=data.Data_ID  INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID left join additional_increase_sellprice on additional_increase_sellprice.SellPrice_ID=sellprice.SellPrice_ID where    data.Type_ID IN(" + q1 + ") and  data.Factory_ID  IN(" + q2 + ") and  data.Product_ID  IN(" + q3 + ") and data.Group_ID IN (" + q4 + ") " + fQuery+ " group by SellPrice.SellPrice_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -673,6 +673,7 @@ namespace MainSystem
             lView.Appearance.Row.Font = gridView1.Appearance.Row.Font;
             lView.Appearance.Row.TextOptions.HAlignment = gridView1.Appearance.Row.TextOptions.HAlignment;
             lView.Appearance.HeaderPanel.Font = gridView1.Appearance.HeaderPanel.Font;
+            lView.OptionsView.ColumnAutoWidth = gridView1.OptionsView.ColumnAutoWidth;
             lView.Appearance.HeaderPanel.TextOptions.HAlignment = gridView1.Appearance.HeaderPanel.TextOptions.HAlignment;
             gridControl1.DataSource = dt;
             lView.Columns[0].Visible = false;

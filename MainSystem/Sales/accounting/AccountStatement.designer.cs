@@ -33,46 +33,47 @@
             this.labTotalPaid = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labRest = new System.Windows.Forms.Label();
-            this.labTotalReturnCost = new System.Windows.Forms.Label();
-            this.labTotalBillCost = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.labTotalBillCost = new System.Windows.Forms.Label();
+            this.labTotalReturnCost = new System.Windows.Forms.Label();
+            this.labRest = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BillNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BillNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panHeader = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimeFrom = new System.Windows.Forms.DateTimePicker();
-            this.dateTimeTo = new System.Windows.Forms.DateTimePicker();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.labelEng = new System.Windows.Forms.Label();
-            this.radClient = new System.Windows.Forms.RadioButton();
-            this.radEng = new System.Windows.Forms.RadioButton();
-            this.radCon = new System.Windows.Forms.RadioButton();
-            this.labelClient = new System.Windows.Forms.Label();
-            this.comClient = new System.Windows.Forms.ComboBox();
-            this.comEngCon = new System.Windows.Forms.ComboBox();
-            this.radDealer = new System.Windows.Forms.RadioButton();
-            this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.txtClientID = new System.Windows.Forms.TextBox();
+            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.radDealer = new System.Windows.Forms.RadioButton();
+            this.comEngCon = new System.Windows.Forms.ComboBox();
+            this.comClient = new System.Windows.Forms.ComboBox();
+            this.labelClient = new System.Windows.Forms.Label();
+            this.radCon = new System.Windows.Forms.RadioButton();
+            this.radEng = new System.Windows.Forms.RadioButton();
+            this.radClient = new System.Windows.Forms.RadioButton();
+            this.labelEng = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.dateTimeTo = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeFrom = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panFooter = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labSafay = new System.Windows.Forms.Label();
-            this.labRest2 = new System.Windows.Forms.Label();
-            this.labTotalReturn2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnTaswaya = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnTaswaya = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labTotalReturn2 = new System.Windows.Forms.Label();
+            this.labRest2 = new System.Windows.Forms.Label();
+            this.labSafay = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -108,6 +109,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn5,
+            this.Type,
             this.dataGridViewTextBoxColumn6});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 351);
@@ -132,24 +134,15 @@
             this.panel1.Size = new System.Drawing.Size(970, 40);
             this.panel1.TabIndex = 162;
             // 
-            // labRest
+            // label6
             // 
-            this.labRest.AutoSize = true;
-            this.labRest.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labRest.Location = new System.Drawing.Point(168, 10);
-            this.labRest.Name = "labRest";
-            this.labRest.Size = new System.Drawing.Size(0, 17);
-            this.labRest.TabIndex = 165;
-            // 
-            // labTotalReturnCost
-            // 
-            this.labTotalReturnCost.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labTotalReturnCost.AutoSize = true;
-            this.labTotalReturnCost.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labTotalReturnCost.Location = new System.Drawing.Point(768, 9);
-            this.labTotalReturnCost.Name = "labTotalReturnCost";
-            this.labTotalReturnCost.Size = new System.Drawing.Size(0, 17);
-            this.labTotalReturnCost.TabIndex = 164;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(270, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 16);
+            this.label6.TabIndex = 166;
+            this.label6.Text = "الباقي";
             // 
             // labTotalBillCost
             // 
@@ -161,15 +154,24 @@
             this.labTotalBillCost.Size = new System.Drawing.Size(0, 17);
             this.labTotalBillCost.TabIndex = 163;
             // 
-            // label6
+            // labTotalReturnCost
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(270, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 16);
-            this.label6.TabIndex = 166;
-            this.label6.Text = "الباقي";
+            this.labTotalReturnCost.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labTotalReturnCost.AutoSize = true;
+            this.labTotalReturnCost.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labTotalReturnCost.Location = new System.Drawing.Point(768, 9);
+            this.labTotalReturnCost.Name = "labTotalReturnCost";
+            this.labTotalReturnCost.Size = new System.Drawing.Size(0, 17);
+            this.labTotalReturnCost.TabIndex = 164;
+            // 
+            // labRest
+            // 
+            this.labRest.AutoSize = true;
+            this.labRest.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labRest.Location = new System.Drawing.Point(168, 10);
+            this.labRest.Name = "labRest";
+            this.labRest.Size = new System.Drawing.Size(0, 17);
+            this.labRest.TabIndex = 165;
             // 
             // dataGridView1
             // 
@@ -198,36 +200,38 @@
             this.dataGridView1.Size = new System.Drawing.Size(970, 191);
             this.dataGridView1.TabIndex = 161;
             // 
-            // Date
+            // Bill
             // 
-            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Date.HeaderText = "تاريخ";
-            this.Date.Name = "Date";
-            // 
-            // Client
-            // 
-            this.Client.HeaderText = "عميل";
-            this.Client.Name = "Client";
-            // 
-            // Customer
-            // 
-            this.Customer.HeaderText = "مهندس/مقاول";
-            this.Customer.Name = "Customer";
-            // 
-            // BillNumber
-            // 
-            this.BillNumber.HeaderText = "رقم الفاتورة";
-            this.BillNumber.Name = "BillNumber";
+            this.Bill.HeaderText = "فواتير";
+            this.Bill.Name = "Bill";
             // 
             // ReturnBill
             // 
             this.ReturnBill.HeaderText = "المرتجعات";
             this.ReturnBill.Name = "ReturnBill";
             // 
-            // Bill
+            // BillNumber
             // 
-            this.Bill.HeaderText = "فواتير";
-            this.Bill.Name = "Bill";
+            this.BillNumber.HeaderText = "رقم الفاتورة";
+            this.BillNumber.Name = "BillNumber";
+            // 
+            // Customer
+            // 
+            this.Customer.HeaderText = "مهندس/مقاول/تاجر";
+            this.Customer.Name = "Customer";
+            this.Customer.Width = 150;
+            // 
+            // Client
+            // 
+            this.Client.HeaderText = "عميل";
+            this.Client.Name = "Client";
+            this.Client.Width = 150;
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date.HeaderText = "تاريخ";
+            this.Date.Name = "Date";
             // 
             // panHeader
             // 
@@ -254,43 +258,133 @@
             this.panHeader.Size = new System.Drawing.Size(970, 120);
             this.panHeader.TabIndex = 0;
             // 
-            // label3
+            // txtClientID
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(425, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 16);
-            this.label3.TabIndex = 160;
-            this.label3.Text = "الي";
+            this.txtClientID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtClientID.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtClientID.Location = new System.Drawing.Point(583, 72);
+            this.txtClientID.Name = "txtClientID";
+            this.txtClientID.Size = new System.Drawing.Size(48, 24);
+            this.txtClientID.TabIndex = 172;
+            this.txtClientID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
-            // label2
+            // txtCustomerID
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(426, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 16);
-            this.label2.TabIndex = 159;
-            this.label2.Text = "من";
+            this.txtCustomerID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustomerID.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtCustomerID.Location = new System.Drawing.Point(583, 41);
+            this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.Size = new System.Drawing.Size(48, 24);
+            this.txtCustomerID.TabIndex = 171;
+            this.txtCustomerID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
-            // dateTimeFrom
+            // radDealer
             // 
-            this.dateTimeFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimeFrom.Location = new System.Drawing.Point(211, 32);
-            this.dateTimeFrom.Name = "dateTimeFrom";
-            this.dateTimeFrom.Size = new System.Drawing.Size(200, 20);
-            this.dateTimeFrom.TabIndex = 158;
+            this.radDealer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.radDealer.AutoSize = true;
+            this.radDealer.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radDealer.Location = new System.Drawing.Point(617, 15);
+            this.radDealer.Name = "radDealer";
+            this.radDealer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radDealer.Size = new System.Drawing.Size(46, 20);
+            this.radDealer.TabIndex = 170;
+            this.radDealer.TabStop = true;
+            this.radDealer.Text = "تاجر";
+            this.radDealer.UseVisualStyleBackColor = true;
+            this.radDealer.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
             // 
-            // dateTimeTo
+            // comEngCon
             // 
-            this.dateTimeTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimeTo.Location = new System.Drawing.Point(211, 68);
-            this.dateTimeTo.Name = "dateTimeTo";
-            this.dateTimeTo.Size = new System.Drawing.Size(200, 20);
-            this.dateTimeTo.TabIndex = 157;
+            this.comEngCon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comEngCon.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comEngCon.FormattingEnabled = true;
+            this.comEngCon.Location = new System.Drawing.Point(638, 41);
+            this.comEngCon.Name = "comEngCon";
+            this.comEngCon.Size = new System.Drawing.Size(173, 24);
+            this.comEngCon.TabIndex = 168;
+            this.comEngCon.Visible = false;
+            this.comEngCon.SelectedValueChanged += new System.EventHandler(this.comEngCon_SelectedValueChanged);
+            // 
+            // comClient
+            // 
+            this.comClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comClient.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comClient.FormattingEnabled = true;
+            this.comClient.Location = new System.Drawing.Point(638, 72);
+            this.comClient.Name = "comClient";
+            this.comClient.Size = new System.Drawing.Size(173, 24);
+            this.comClient.TabIndex = 163;
+            this.comClient.Visible = false;
+            this.comClient.SelectedIndexChanged += new System.EventHandler(this.comClient_SelectedValueChanged);
+            // 
+            // labelClient
+            // 
+            this.labelClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelClient.AutoSize = true;
+            this.labelClient.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClient.Location = new System.Drawing.Point(817, 76);
+            this.labelClient.Name = "labelClient";
+            this.labelClient.Size = new System.Drawing.Size(35, 16);
+            this.labelClient.TabIndex = 164;
+            this.labelClient.Text = "عميل";
+            this.labelClient.Visible = false;
+            // 
+            // radCon
+            // 
+            this.radCon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.radCon.AutoSize = true;
+            this.radCon.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radCon.Location = new System.Drawing.Point(672, 15);
+            this.radCon.Name = "radCon";
+            this.radCon.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radCon.Size = new System.Drawing.Size(59, 20);
+            this.radCon.TabIndex = 165;
+            this.radCon.TabStop = true;
+            this.radCon.Text = "مقاول";
+            this.radCon.UseVisualStyleBackColor = true;
+            this.radCon.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
+            // 
+            // radEng
+            // 
+            this.radEng.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.radEng.AutoSize = true;
+            this.radEng.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radEng.Location = new System.Drawing.Point(737, 15);
+            this.radEng.Name = "radEng";
+            this.radEng.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radEng.Size = new System.Drawing.Size(65, 20);
+            this.radEng.TabIndex = 166;
+            this.radEng.TabStop = true;
+            this.radEng.Text = "مهندس";
+            this.radEng.UseVisualStyleBackColor = true;
+            this.radEng.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
+            // 
+            // radClient
+            // 
+            this.radClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.radClient.AutoSize = true;
+            this.radClient.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radClient.Location = new System.Drawing.Point(814, 15);
+            this.radClient.Name = "radClient";
+            this.radClient.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radClient.Size = new System.Drawing.Size(53, 20);
+            this.radClient.TabIndex = 167;
+            this.radClient.TabStop = true;
+            this.radClient.Text = "عميل";
+            this.radClient.UseVisualStyleBackColor = true;
+            this.radClient.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
+            // 
+            // labelEng
+            // 
+            this.labelEng.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelEng.AutoSize = true;
+            this.labelEng.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEng.Location = new System.Drawing.Point(815, 45);
+            this.labelEng.Name = "labelEng";
+            this.labelEng.Size = new System.Drawing.Size(110, 16);
+            this.labelEng.TabIndex = 169;
+            this.labelEng.Text = "مهندس/مقاول/تاجر";
+            this.labelEng.Visible = false;
             // 
             // btnSearch
             // 
@@ -308,133 +402,43 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // labelEng
+            // dateTimeTo
             // 
-            this.labelEng.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelEng.AutoSize = true;
-            this.labelEng.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEng.Location = new System.Drawing.Point(815, 45);
-            this.labelEng.Name = "labelEng";
-            this.labelEng.Size = new System.Drawing.Size(110, 16);
-            this.labelEng.TabIndex = 169;
-            this.labelEng.Text = "مهندس/مقاول/تاجر";
-            this.labelEng.Visible = false;
+            this.dateTimeTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dateTimeTo.Location = new System.Drawing.Point(211, 68);
+            this.dateTimeTo.Name = "dateTimeTo";
+            this.dateTimeTo.Size = new System.Drawing.Size(200, 20);
+            this.dateTimeTo.TabIndex = 157;
             // 
-            // radClient
+            // dateTimeFrom
             // 
-            this.radClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radClient.AutoSize = true;
-            this.radClient.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radClient.Location = new System.Drawing.Point(814, 15);
-            this.radClient.Name = "radClient";
-            this.radClient.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radClient.Size = new System.Drawing.Size(53, 20);
-            this.radClient.TabIndex = 167;
-            this.radClient.TabStop = true;
-            this.radClient.Text = "عميل";
-            this.radClient.UseVisualStyleBackColor = true;
-            this.radClient.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
+            this.dateTimeFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dateTimeFrom.Location = new System.Drawing.Point(211, 32);
+            this.dateTimeFrom.Name = "dateTimeFrom";
+            this.dateTimeFrom.Size = new System.Drawing.Size(200, 20);
+            this.dateTimeFrom.TabIndex = 158;
             // 
-            // radEng
+            // label2
             // 
-            this.radEng.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radEng.AutoSize = true;
-            this.radEng.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radEng.Location = new System.Drawing.Point(737, 15);
-            this.radEng.Name = "radEng";
-            this.radEng.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radEng.Size = new System.Drawing.Size(65, 20);
-            this.radEng.TabIndex = 166;
-            this.radEng.TabStop = true;
-            this.radEng.Text = "مهندس";
-            this.radEng.UseVisualStyleBackColor = true;
-            this.radEng.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(426, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 16);
+            this.label2.TabIndex = 159;
+            this.label2.Text = "من";
             // 
-            // radCon
+            // label3
             // 
-            this.radCon.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radCon.AutoSize = true;
-            this.radCon.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radCon.Location = new System.Drawing.Point(672, 15);
-            this.radCon.Name = "radCon";
-            this.radCon.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radCon.Size = new System.Drawing.Size(59, 20);
-            this.radCon.TabIndex = 165;
-            this.radCon.TabStop = true;
-            this.radCon.Text = "مقاول";
-            this.radCon.UseVisualStyleBackColor = true;
-            this.radCon.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
-            // 
-            // labelClient
-            // 
-            this.labelClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelClient.AutoSize = true;
-            this.labelClient.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClient.Location = new System.Drawing.Point(817, 76);
-            this.labelClient.Name = "labelClient";
-            this.labelClient.Size = new System.Drawing.Size(35, 16);
-            this.labelClient.TabIndex = 164;
-            this.labelClient.Text = "عميل";
-            this.labelClient.Visible = false;
-            // 
-            // comClient
-            // 
-            this.comClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comClient.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.comClient.FormattingEnabled = true;
-            this.comClient.Location = new System.Drawing.Point(638, 72);
-            this.comClient.Name = "comClient";
-            this.comClient.Size = new System.Drawing.Size(173, 24);
-            this.comClient.TabIndex = 163;
-            this.comClient.Visible = false;
-            this.comClient.SelectedIndexChanged += new System.EventHandler(this.comClient_SelectedValueChanged);
-            // 
-            // comEngCon
-            // 
-            this.comEngCon.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comEngCon.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.comEngCon.FormattingEnabled = true;
-            this.comEngCon.Location = new System.Drawing.Point(638, 41);
-            this.comEngCon.Name = "comEngCon";
-            this.comEngCon.Size = new System.Drawing.Size(173, 24);
-            this.comEngCon.TabIndex = 168;
-            this.comEngCon.Visible = false;
-            this.comEngCon.SelectedValueChanged += new System.EventHandler(this.comEngCon_SelectedValueChanged);
-            // 
-            // radDealer
-            // 
-            this.radDealer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radDealer.AutoSize = true;
-            this.radDealer.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radDealer.Location = new System.Drawing.Point(617, 15);
-            this.radDealer.Name = "radDealer";
-            this.radDealer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radDealer.Size = new System.Drawing.Size(46, 20);
-            this.radDealer.TabIndex = 170;
-            this.radDealer.TabStop = true;
-            this.radDealer.Text = "تاجر";
-            this.radDealer.UseVisualStyleBackColor = true;
-            this.radDealer.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
-            // 
-            // txtCustomerID
-            // 
-            this.txtCustomerID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCustomerID.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtCustomerID.Location = new System.Drawing.Point(583, 41);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(48, 24);
-            this.txtCustomerID.TabIndex = 171;
-            this.txtCustomerID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
-            // 
-            // txtClientID
-            // 
-            this.txtClientID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtClientID.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtClientID.Location = new System.Drawing.Point(583, 72);
-            this.txtClientID.Name = "txtClientID";
-            this.txtClientID.Size = new System.Drawing.Size(48, 24);
-            this.txtClientID.TabIndex = 172;
-            this.txtClientID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(425, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 16);
+            this.label3.TabIndex = 160;
+            this.label3.Text = "الي";
             // 
             // panFooter
             // 
@@ -454,53 +458,15 @@
             this.panFooter.Size = new System.Drawing.Size(970, 150);
             this.panFooter.TabIndex = 168;
             // 
-            // label1
+            // label9
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(270, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
-            this.label1.TabIndex = 171;
-            this.label1.Text = "الباقي";
-            // 
-            // labSafay
-            // 
-            this.labSafay.AutoSize = true;
-            this.labSafay.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labSafay.Location = new System.Drawing.Point(439, 90);
-            this.labSafay.Name = "labSafay";
-            this.labSafay.Size = new System.Drawing.Size(0, 17);
-            this.labSafay.TabIndex = 174;
-            // 
-            // labRest2
-            // 
-            this.labRest2.AutoSize = true;
-            this.labRest2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labRest2.Location = new System.Drawing.Point(162, 22);
-            this.labRest2.Name = "labRest2";
-            this.labRest2.Size = new System.Drawing.Size(0, 17);
-            this.labRest2.TabIndex = 170;
-            // 
-            // labTotalReturn2
-            // 
-            this.labTotalReturn2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labTotalReturn2.AutoSize = true;
-            this.labTotalReturn2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labTotalReturn2.Location = new System.Drawing.Point(771, 13);
-            this.labTotalReturn2.Name = "labTotalReturn2";
-            this.labTotalReturn2.Size = new System.Drawing.Size(0, 17);
-            this.labTotalReturn2.TabIndex = 169;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 20F);
-            this.label8.Location = new System.Drawing.Point(189, 54);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(630, 33);
-            this.label8.TabIndex = 172;
-            this.label8.Text = "_________________________________________";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(532, 90);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 16);
+            this.label9.TabIndex = 173;
+            this.label9.Text = "الصافي";
             // 
             // btnTaswaya
             // 
@@ -513,19 +479,57 @@
             this.btnTaswaya.Name = "btnTaswaya";
             this.btnTaswaya.Size = new System.Drawing.Size(111, 40);
             this.btnTaswaya.TabIndex = 177;
-            this.btnTaswaya.Text = "تسوية";
+            this.btnTaswaya.Text = "عمل تسوية";
             this.btnTaswaya.UseVisualStyleBackColor = false;
             this.btnTaswaya.Click += new System.EventHandler(this.btnTaswaya_Click);
             // 
-            // label9
+            // label8
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(532, 90);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 16);
-            this.label9.TabIndex = 173;
-            this.label9.Text = "الصافي";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.label8.Location = new System.Drawing.Point(221, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(630, 33);
+            this.label8.TabIndex = 172;
+            this.label8.Text = "_________________________________________";
+            // 
+            // labTotalReturn2
+            // 
+            this.labTotalReturn2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labTotalReturn2.AutoSize = true;
+            this.labTotalReturn2.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labTotalReturn2.Location = new System.Drawing.Point(771, 13);
+            this.labTotalReturn2.Name = "labTotalReturn2";
+            this.labTotalReturn2.Size = new System.Drawing.Size(0, 17);
+            this.labTotalReturn2.TabIndex = 169;
+            // 
+            // labRest2
+            // 
+            this.labRest2.AutoSize = true;
+            this.labRest2.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labRest2.Location = new System.Drawing.Point(162, 22);
+            this.labRest2.Name = "labRest2";
+            this.labRest2.Size = new System.Drawing.Size(0, 17);
+            this.labRest2.TabIndex = 170;
+            // 
+            // labSafay
+            // 
+            this.labSafay.AutoSize = true;
+            this.labSafay.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labSafay.Location = new System.Drawing.Point(439, 90);
+            this.labSafay.Name = "labSafay";
+            this.labSafay.Size = new System.Drawing.Size(0, 17);
+            this.labSafay.TabIndex = 174;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(270, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.TabIndex = 171;
+            this.label1.Text = "الباقي";
             // 
             // tableLayoutPanel1
             // 
@@ -567,6 +571,12 @@
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "عميل";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "النوع";
+            this.Type.Name = "Type";
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -607,12 +617,6 @@
         private System.Windows.Forms.Label labTotalReturnCost;
         private System.Windows.Forms.Label labRest;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Bill;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnBill;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BillNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.Panel panHeader;
         private System.Windows.Forms.TextBox txtClientID;
         private System.Windows.Forms.TextBox txtCustomerID;
@@ -638,10 +642,17 @@
         private System.Windows.Forms.Label labSafay;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bill;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnBill;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BillNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Client;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

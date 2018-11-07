@@ -33,12 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\User\Desktop\AxInterop.WMPLib\AxInterop.WMPLib.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>D:\sara\Codes\Bank_DX\BankDX\BankDX\BankDX\BankDX\bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>..\..\..\Bank_DX\BankDX\BankDX\BankDX\BankDX\bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dashboard.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -83,6 +87,10 @@
       <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Interop.WMPLib">
+      <HintPath>C:\Users\User\Desktop\Interop.WMPLib\Interop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
       <Private>True</Private>
@@ -97,7 +105,7 @@
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\sara\Codes\Bank_DX\BankDX\BankDX\BankDX\BankDX\bin\Debug\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\Bank_DX\BankDX\BankDX\BankDX\BankDX\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -129,30 +137,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WMP.Alexa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMP.Alexa.1.0.7\lib\net452\WMP.Alexa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bank\Bill_Items.cs" />
-    <Compile Include="Bank\Print_Bill_Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bank\Print_Bill_Report.designer.cs">
-      <DependentUpon>Print_Bill_Report.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bank\Print_Invoice.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Bank\Print_Invoice.designer.cs">
-      <DependentUpon>Print_Invoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\accounting\AccountStatement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\accounting\AccountStatement.designer.cs">
-      <DependentUpon>AccountStatement.cs</DependentUpon>
-    </Compile>
     <Compile Include="BankSystem.cs" />
     <Compile Include="Bank\BankDepositAgl_Print.cs">
       <SubType>Form</SubType>
@@ -598,18 +588,6 @@
       <DependentUpon>SparePart_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="CarSystem.cs" />
-    <Compile Include="Sales\accounting\checkPaidBillsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\accounting\checkPaidBillsForm.designer.cs">
-      <DependentUpon>checkPaidBillsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\accounting\customerBills.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\accounting\customerBills.designer.cs">
-      <DependentUpon>customerBills.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -749,17 +727,17 @@
     <Compile Include="Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="PointOfSale\AddSpecialOrderScanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PointOfSale\AddSpecialOrderScanner.designer.cs">
-      <DependentUpon>AddSpecialOrderScanner.cs</DependentUpon>
-    </Compile>
     <Compile Include="PointOfSale\AddSpecialOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PointOfSale\AddSpecialOrder.designer.cs">
+    <Compile Include="PointOfSale\AddSpecialOrder.Designer.cs">
       <DependentUpon>AddSpecialOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PointOfSale\BillDetails_Confirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PointOfSale\BillDetails_Confirm.designer.cs">
+      <DependentUpon>BillDetails_Confirm.cs</DependentUpon>
     </Compile>
     <Compile Include="PointOfSale\Information_Offers.cs">
       <SubType>Form</SubType>
@@ -785,12 +763,6 @@
     <Compile Include="PointOfSale\ProductsDetails_Report.designer.cs">
       <DependentUpon>ProductsDetails_Report.cs</DependentUpon>
     </Compile>
-    <Compile Include="PointOfSale\InformationProducts_Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PointOfSale\InformationProducts_Report.designer.cs">
-      <DependentUpon>InformationProducts_Report.cs</DependentUpon>
-    </Compile>
     <Compile Include="PointOfSale\Products_Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -814,6 +786,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ReceptionSystem.cs" />
     <Compile Include="Reception\Commitment_Report.cs">
@@ -883,41 +858,11 @@
       <DependentUpon>GraphicDelegateExistence_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="SalesSystem.cs" />
-    <Compile Include="Sales\accounting\CustomerTaswaya.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\accounting\CustomerTaswaya.Designer.cs">
-      <DependentUpon>CustomerTaswaya.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\AdvancedEditForm2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\AdvancedEditForm2.designer.cs">
-      <DependentUpon>AdvancedEditForm2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sales\AdvancedEditForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Sales\AdvancedEditForm.designer.cs">
       <DependentUpon>AdvancedEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\CustomerReturnBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\CustomerReturnBill.designer.cs">
-      <DependentUpon>CustomerReturnBill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\CustomerReturnBill_Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\CustomerReturnBill_Report.designer.cs">
-      <DependentUpon>CustomerReturnBill_Report.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\Offer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Offer.designer.cs">
-      <DependentUpon>Offer.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\Bill_Confirm.cs">
       <SubType>Form</SubType>
@@ -949,24 +894,6 @@
     <Compile Include="Sales\Customer_Update.designer.cs">
       <DependentUpon>Customer_Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\customPanel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\customPanel.Designer.cs">
-      <DependentUpon>customPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\Offer_Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Offer_Update.designer.cs">
-      <DependentUpon>Offer_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\Offer_Record.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Offer_Record.designer.cs">
-      <DependentUpon>Offer_Record.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sales\ItemDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -991,35 +918,11 @@
     <Compile Include="Sales\Products_Report2Sales.designer.cs">
       <DependentUpon>Products_Report2Sales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\PriceUpdateSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\PriceUpdateSales.designer.cs">
-      <DependentUpon>PriceUpdateSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sales\QuantityUpdate2Sales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\QuantityUpdate2Sales.designer.cs">
       <DependentUpon>QuantityUpdate2Sales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\SpecialOrders_Report2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\SpecialOrders_Report2.designer.cs">
-      <DependentUpon>SpecialOrders_Report2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\SpecialOrders_Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\SpecialOrders_Report.designer.cs">
-      <DependentUpon>SpecialOrders_Report.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\UpdateSellPrice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\UpdateSellPrice.Designer.cs">
-      <DependentUpon>UpdateSellPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\SetSellPrice.cs">
       <SubType>Form</SubType>
@@ -1027,36 +930,23 @@
     <Compile Include="Sales\SetSellPrice.Designer.cs">
       <DependentUpon>SetSellPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\SpecialOrders_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\SpecialOrders_Report.designer.cs">
+      <DependentUpon>SpecialOrders_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\SpecialOrder_Request.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\SpecialOrder_Request.designer.cs">
+      <DependentUpon>SpecialOrder_Request.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\UpdateSellPriceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\UpdateSellPriceForm.Designer.cs">
       <DependentUpon>UpdateSellPriceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ShippingSystem.cs" />
-    <Compile Include="Shipping\Area_Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Shipping\Area_Report.designer.cs">
-      <DependentUpon>Area_Report.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Shipping\Shipping_Record.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Shipping\Shipping_Record.designer.cs">
-      <DependentUpon>Shipping_Record.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Shipping\Zone_Area.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Shipping\Zone_Area.Designer.cs">
-      <DependentUpon>Zone_Area.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Shipping\Zone_Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Shipping\Zone_Report.designer.cs">
-      <DependentUpon>Zone_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="StoreSystem.cs" />
     <Compile Include="Store\Ataqm.cs">
@@ -1065,17 +955,23 @@
     <Compile Include="Store\Ataqm.designer.cs">
       <DependentUpon>Ataqm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\OfferStorage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OfferStorage.designer.cs">
-      <DependentUpon>OfferStorage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Store\AtaqmStorage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Store\AtaqmStorage.designer.cs">
       <DependentUpon>AtaqmStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Store\CarsMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Store\CarsMainForm.Designer.cs">
+      <DependentUpon>CarsMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Store\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Store\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Store\initialCodeStorage.cs">
       <SubType>Form</SubType>
@@ -1113,12 +1009,6 @@
     <Compile Include="Store\Product_Update.designer.cs">
       <DependentUpon>Product_Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\Offer_Fak.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Offer_Fak.designer.cs">
-      <DependentUpon>Offer_Fak.cs</DependentUpon>
-    </Compile>
     <Compile Include="Store\SetFak.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1136,12 +1026,6 @@
     </Compile>
     <Compile Include="Store\SetReport.Designer.cs">
       <DependentUpon>SetReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\Offer_Collect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Offer_Collect.designer.cs">
-      <DependentUpon>Offer_Collect.cs</DependentUpon>
     </Compile>
     <Compile Include="Store\SetTagame3.cs">
       <SubType>Form</SubType>
@@ -1179,12 +1063,6 @@
     <Compile Include="Store\Store_Record.designer.cs">
       <DependentUpon>Store_Record.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\Offer_Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Offer_Report.Designer.cs">
-      <DependentUpon>Offer_Report.cs</DependentUpon>
-    </Compile>
     <Compile Include="Store\Store_Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1203,12 +1081,6 @@
     <Compile Include="Store\UpdateCodeStorage.designer.cs">
       <DependentUpon>UpdateCodeStorage.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequestImage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RequestImage.designer.cs">
-      <DependentUpon>RequestImage.cs</DependentUpon>
-    </Compile>
     <Compile Include="TipImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1216,15 +1088,6 @@
       <DependentUpon>TipImage.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl.cs" />
-    <EmbeddedResource Include="Bank\Print_Bill_Report.resx">
-      <DependentUpon>Print_Bill_Report.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bank\Print_Invoice.resx">
-      <DependentUpon>Print_Invoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\accounting\AccountStatement.resx">
-      <DependentUpon>AccountStatement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bank\BankDepositAgl_Print.resx">
       <DependentUpon>BankDepositAgl_Print.cs</DependentUpon>
     </EmbeddedResource>
@@ -1444,12 +1307,6 @@
     <EmbeddedResource Include="Cars\SparePart_Report.resx">
       <DependentUpon>SparePart_Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\accounting\checkPaidBillsForm.resx">
-      <DependentUpon>checkPaidBillsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\accounting\customerBills.resx">
-      <DependentUpon>customerBills.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HR\3lawaRecord.resx">
       <DependentUpon>3lawaRecord.cs</DependentUpon>
     </EmbeddedResource>
@@ -1516,11 +1373,11 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PointOfSale\AddSpecialOrderScanner.resx">
-      <DependentUpon>AddSpecialOrderScanner.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PointOfSale\AddSpecialOrder.resx">
       <DependentUpon>AddSpecialOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PointOfSale\BillDetails_Confirm.resx">
+      <DependentUpon>BillDetails_Confirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PointOfSale\Information_Offers.resx">
       <DependentUpon>Information_Offers.cs</DependentUpon>
@@ -1533,9 +1390,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PointOfSale\ProductsDetails_Report.resx">
       <DependentUpon>ProductsDetails_Report.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PointOfSale\InformationProducts_Report.resx">
-      <DependentUpon>InformationProducts_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PointOfSale\Products_Report.resx">
       <DependentUpon>Products_Report.cs</DependentUpon>
@@ -1593,23 +1447,8 @@
     <EmbeddedResource Include="Reception\GraphicDelegateExistence_Report.resx">
       <DependentUpon>GraphicDelegateExistence_Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\accounting\CustomerTaswaya.resx">
-      <DependentUpon>CustomerTaswaya.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\AdvancedEditForm2.resx">
-      <DependentUpon>AdvancedEditForm2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sales\AdvancedEditForm.resx">
       <DependentUpon>AdvancedEditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\CustomerReturnBill.resx">
-      <DependentUpon>CustomerReturnBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\CustomerReturnBill_Report.resx">
-      <DependentUpon>CustomerReturnBill_Report.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Offer.resx">
-      <DependentUpon>Offer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\Bill_Confirm.resx">
       <DependentUpon>Bill_Confirm.cs</DependentUpon>
@@ -1626,15 +1465,6 @@
     <EmbeddedResource Include="Sales\Customer_Update.resx">
       <DependentUpon>Customer_Update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\customPanel.resx">
-      <DependentUpon>customPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Offer_Update.resx">
-      <DependentUpon>Offer_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Offer_Record.resx">
-      <DependentUpon>Offer_Record.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sales\ItemDetails.resx">
       <DependentUpon>ItemDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -1647,47 +1477,32 @@
     <EmbeddedResource Include="Sales\Products_Report2Sales.resx">
       <DependentUpon>Products_Report2Sales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\PriceUpdateSales.resx">
-      <DependentUpon>PriceUpdateSales.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sales\QuantityUpdate2Sales.resx">
       <DependentUpon>QuantityUpdate2Sales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\SpecialOrders_Report2.resx">
-      <DependentUpon>SpecialOrders_Report2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\SpecialOrders_Report.resx">
-      <DependentUpon>SpecialOrders_Report.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\UpdateSellPrice.resx">
-      <DependentUpon>UpdateSellPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\SetSellPrice.resx">
       <DependentUpon>SetSellPrice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\SpecialOrders_Report.resx">
+      <DependentUpon>SpecialOrders_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\SpecialOrder_Request.resx">
+      <DependentUpon>SpecialOrder_Request.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\UpdateSellPriceForm.resx">
       <DependentUpon>UpdateSellPriceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Shipping\Area_Report.resx">
-      <DependentUpon>Area_Report.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Shipping\Shipping_Record.resx">
-      <DependentUpon>Shipping_Record.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Shipping\Zone_Area.resx">
-      <DependentUpon>Zone_Area.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Shipping\Zone_Report.resx">
-      <DependentUpon>Zone_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Store\Ataqm.resx">
       <DependentUpon>Ataqm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OfferStorage.resx">
-      <DependentUpon>OfferStorage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Store\AtaqmStorage.resx">
       <DependentUpon>AtaqmStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Store\CarsMainForm.resx">
+      <DependentUpon>CarsMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Store\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Store\initialCodeStorage.resx">
       <DependentUpon>initialCodeStorage.cs</DependentUpon>
@@ -1707,9 +1522,6 @@
     <EmbeddedResource Include="Store\Product_Update.resx">
       <DependentUpon>Product_Update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Offer_Fak.resx">
-      <DependentUpon>Offer_Fak.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Store\SetFak.resx">
       <DependentUpon>SetFak.cs</DependentUpon>
     </EmbeddedResource>
@@ -1718,9 +1530,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Store\SetReport.resx">
       <DependentUpon>SetReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Offer_Collect.resx">
-      <DependentUpon>Offer_Collect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Store\SetTagame3.resx">
       <DependentUpon>SetTagame3.cs</DependentUpon>
@@ -1740,9 +1549,6 @@
     <EmbeddedResource Include="Store\Store_Record.resx">
       <DependentUpon>Store_Record.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Offer_Report.resx">
-      <DependentUpon>Offer_Report.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Store\Store_Report.resx">
       <DependentUpon>Store_Report.cs</DependentUpon>
     </EmbeddedResource>
@@ -1751,9 +1557,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Store\UpdateCodeStorage.resx">
       <DependentUpon>UpdateCodeStorage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RequestImage.resx">
-      <DependentUpon>RequestImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TipImage.resx">
       <DependentUpon>TipImage.cs</DependentUpon>
@@ -1783,34 +1586,7 @@
     </Compile>
     <None Include="Store\packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AxWMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="stdole">
-      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\11.png" />
   </ItemGroup>
@@ -2029,11 +1805,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
-    <None Include="Resources\icons8_Collapse_Arrow_32.png" />
-    <None Include="Resources\icons8_Expand_Arrow_32.png" />
-    <None Include="Resources\arrow-211-512.png" />
-    <None Include="Resources\arrow-150-xxl.png" />
-    <None Include="Resources\icons8_Download_32.png" />
     <None Include="Resources\update.png" />
     <None Include="Resources\BackgroundBlue.jpg" />
     <None Include="Resources\Car Service_50px.png" />
@@ -2060,7 +1831,6 @@
     <None Include="Resources\Trolley_80px.png" />
     <None Include="Resources\unsave %282%29.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

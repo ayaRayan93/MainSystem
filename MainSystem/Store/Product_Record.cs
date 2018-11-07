@@ -522,9 +522,8 @@ namespace MainSystem
                         command.Parameters.AddWithValue("?Data_Date", DateTime.Now.Date);
                         conn.Open();
                         command.ExecuteNonQuery();
-                        conn.Close();
-
-                        query2 = "select Data_ID from data order by Data_ID limit 1";
+                       
+                        query2 = "select Data_ID from data order by Data_ID desc limit 1";
                         comand = new MySqlCommand(query2, conn);
                         int data_ID =Convert.ToInt16(comand.ExecuteScalar());
                         //save image as bytes
@@ -534,19 +533,14 @@ namespace MainSystem
                             command.CommandText = "INSERT INTO data_photo (Data_ID,Photo,Type) VALUES (?Data_ID,?Photo,?Type)";
                             command.Parameters.AddWithValue("?Data_ID", data_ID);
                             command.Parameters.AddWithValue("?Photo", selectedImage);
-                            command.Parameters.AddWithValue("?Type", "بند");
-                            conn.Open();
+                            command.Parameters.AddWithValue("?Type", "بند");                        
                             command.ExecuteNonQuery();
                         }
                         
                         products.displayProducts();
-                       // UserControl.UserRecord("data", "اضافة", code, DateTime.Now, conn);
-                        clear();
-                        MessageBox.Show("inserted");
-
-                       
-                        comType.Focus();
-                      
+                        UserControl.ItemRecord("data", "اضافة", data_ID, DateTime.Now,"", conn);
+                        clear();                      
+                        comType.Focus();          
                     }
                     else
                     {
