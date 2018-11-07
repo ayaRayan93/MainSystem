@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -138,7 +139,7 @@
             this.txtName.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(668, 89);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(268, 26);
+            this.txtName.Size = new System.Drawing.Size(265, 26);
             this.txtName.TabIndex = 0;
             this.txtName.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
@@ -147,7 +148,7 @@
             this.txtPhone.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(230, 89);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(268, 26);
+            this.txtPhone.Size = new System.Drawing.Size(265, 26);
             this.txtPhone.TabIndex = 1;
             this.txtPhone.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
@@ -156,7 +157,7 @@
             this.txtAddress.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Location = new System.Drawing.Point(668, 143);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(268, 26);
+            this.txtAddress.Size = new System.Drawing.Size(265, 26);
             this.txtAddress.TabIndex = 2;
             this.txtAddress.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
@@ -166,7 +167,7 @@
             this.txtINF.Location = new System.Drawing.Point(230, 143);
             this.txtINF.Multiline = true;
             this.txtINF.Name = "txtINF";
-            this.txtINF.Size = new System.Drawing.Size(268, 134);
+            this.txtINF.Size = new System.Drawing.Size(265, 134);
             this.txtINF.TabIndex = 5;
             this.txtINF.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
@@ -217,7 +218,7 @@
             this.txtNationalID.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNationalID.Location = new System.Drawing.Point(668, 251);
             this.txtNationalID.Name = "txtNationalID";
-            this.txtNationalID.Size = new System.Drawing.Size(268, 26);
+            this.txtNationalID.Size = new System.Drawing.Size(265, 26);
             this.txtNationalID.TabIndex = 4;
             this.txtNationalID.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
@@ -226,7 +227,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(668, 197);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(268, 26);
+            this.txtEmail.Size = new System.Drawing.Size(265, 26);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
@@ -459,9 +460,9 @@
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Neo Sans Arabic", 15.75F);
             this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.labelName.Location = new System.Drawing.Point(670, 76);
+            this.labelName.Location = new System.Drawing.Point(670, 74);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(61, 26);
+            this.labelName.Size = new System.Drawing.Size(62, 26);
             this.labelName.TabIndex = 4;
             this.labelName.Text = "الاسم";
             this.labelName.Visible = false;
@@ -486,9 +487,9 @@
             this.radEng.AutoSize = true;
             this.radEng.Font = new System.Drawing.Font("Neo Sans Arabic", 15.75F);
             this.radEng.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.radEng.Location = new System.Drawing.Point(601, 30);
+            this.radEng.Location = new System.Drawing.Point(599, 30);
             this.radEng.Name = "radEng";
-            this.radEng.Size = new System.Drawing.Size(93, 30);
+            this.radEng.Size = new System.Drawing.Size(95, 30);
             this.radEng.TabIndex = 12;
             this.radEng.TabStop = true;
             this.radEng.Text = "مهندس";
@@ -502,9 +503,9 @@
             this.radDealer.AutoSize = true;
             this.radDealer.Font = new System.Drawing.Font("Neo Sans Arabic", 15.75F);
             this.radDealer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.radDealer.Location = new System.Drawing.Point(445, 30);
+            this.radDealer.Location = new System.Drawing.Point(443, 30);
             this.radDealer.Name = "radDealer";
-            this.radDealer.Size = new System.Drawing.Size(60, 30);
+            this.radDealer.Size = new System.Drawing.Size(62, 30);
             this.radDealer.TabIndex = 14;
             this.radDealer.TabStop = true;
             this.radDealer.Text = "تاجر";
@@ -518,9 +519,9 @@
             this.radCon.AutoSize = true;
             this.radCon.Font = new System.Drawing.Font("Neo Sans Arabic", 15.75F);
             this.radCon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.radCon.Location = new System.Drawing.Point(511, 30);
+            this.radCon.Location = new System.Drawing.Point(510, 30);
             this.radCon.Name = "radCon";
-            this.radCon.Size = new System.Drawing.Size(84, 30);
+            this.radCon.Size = new System.Drawing.Size(85, 30);
             this.radCon.TabIndex = 13;
             this.radCon.TabStop = true;
             this.radCon.Text = "مقاول";
@@ -663,7 +664,7 @@
             this.layoutControlItem11.Size = new System.Drawing.Size(390, 30);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.Text = "رقم التليفون";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(115, 26);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(118, 26);
             // 
             // layoutControlItem13
             // 
@@ -679,7 +680,7 @@
             this.layoutControlItem13.Size = new System.Drawing.Size(390, 30);
             this.layoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem13.Text = "الرقم القومى";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(115, 26);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(118, 26);
             // 
             // layoutControlItem2
             // 
@@ -704,7 +705,7 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(390, 30);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "الاسم";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(115, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(118, 26);
             // 
             // layoutControlItem12
             // 
@@ -720,7 +721,7 @@
             this.layoutControlItem12.Size = new System.Drawing.Size(390, 30);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.Text = "العنوان";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(115, 26);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(118, 26);
             // 
             // layoutControlItem15
             // 
@@ -769,7 +770,7 @@
             this.layoutControlItem10.Size = new System.Drawing.Size(390, 30);
             this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem10.Text = "الايميل";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(115, 26);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(118, 26);
             // 
             // layoutControlItem20
             // 
@@ -794,7 +795,7 @@
             this.layoutControlItem14.Size = new System.Drawing.Size(390, 138);
             this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem14.Text = "البيان";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(115, 26);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(118, 26);
             // 
             // layoutControlItem18
             // 

@@ -13,6 +13,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraTab.ViewInfo;
 using DevExpress.XtraNavBar;
 using MySql.Data.MySqlClient;
+using MainSystem.Sales.accounting;
 
 namespace MainSystem
 {
@@ -354,17 +355,17 @@ namespace MainSystem
                 if (!xtraTabControlSalesContent.Visible)
                     xtraTabControlSalesContent.Visible = true;
 
-                XtraTabPage xtraTabPage = getTabPage("كشف حسابات العملاءالاجل");
+                XtraTabPage xtraTabPage = getTabPage("كشف حسابات العملاء");
                 if (xtraTabPage == null)
                 {
-                    xtraTabControlSalesContent.TabPages.Add("كشف حسابات العملاءالاجل");
-                    xtraTabPage = getTabPage("كشف حسابات العملاءالاجل");
+                    xtraTabControlSalesContent.TabPages.Add("كشف حسابات العملاء");
+                    xtraTabPage = getTabPage("كشف حسابات العملاء");
                 }
                 xtraTabPage.Controls.Clear();
 
                 xtraTabControlSalesContent.SelectedTabPage = xtraTabPage;
 
-                AccountStatement objForm = new AccountStatement();
+                AccountStatement objForm = new AccountStatement(this);
                 objForm.TopLevel = false;
 
                 xtraTabPage.Controls.Add(objForm);
@@ -702,6 +703,28 @@ namespace MainSystem
             objFormCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             objFormCustomer.Dock = DockStyle.Fill;
             objFormCustomer.Show();
+        }
+        //taswaya customer
+        public void bindTaswayaCustomersForm(string customerType,string customerID,string clientID)
+        {
+            if (!xtraTabControlSalesContent.Visible)
+                xtraTabControlSalesContent.Visible = true;
+
+            XtraTabPage xtraTabPage = getTabPage("تسوية عميل");
+            if (xtraTabPage == null)
+            {
+                xtraTabControlSalesContent.TabPages.Add("تسوية عميل");
+                xtraTabPage = getTabPage("تسوية عميل");
+            }
+            xtraTabPage.Controls.Clear();
+            xtraTabControlSalesContent.SelectedTabPage = xtraTabPage;
+
+            CustomerTaswaya  objForm = new CustomerTaswaya( customerType,  customerID,  clientID);
+            objForm.TopLevel = false;
+            xtraTabPage.Controls.Add(objForm);
+            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
         }
         //confirm bill
         public void bindDisplayConfirmBillForm(XtraTabPage xtraTabPage)
