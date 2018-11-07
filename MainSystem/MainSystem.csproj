@@ -883,6 +883,12 @@
       <DependentUpon>GraphicDelegateExistence_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="SalesSystem.cs" />
+    <Compile Include="Sales\accounting\CustomerTaswaya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\accounting\CustomerTaswaya.Designer.cs">
+      <DependentUpon>CustomerTaswaya.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\AdvancedEditForm2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1586,6 +1592,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reception\GraphicDelegateExistence_Report.resx">
       <DependentUpon>GraphicDelegateExistence_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\accounting\CustomerTaswaya.resx">
+      <DependentUpon>CustomerTaswaya.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\AdvancedEditForm2.resx">
       <DependentUpon>AdvancedEditForm2.cs</DependentUpon>
