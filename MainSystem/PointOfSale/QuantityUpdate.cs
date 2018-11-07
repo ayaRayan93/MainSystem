@@ -18,6 +18,7 @@ namespace MainSystem
         DataRowView selRow;
         MySqlConnection conn;
         XtraTabControl MainTabControlPointSale;
+        int cartons = 0;
 
         public QuantityUpdate(DataRowView Selrow)
         {
@@ -65,14 +66,23 @@ namespace MainSystem
                             return;
                         }
 
-                        if (selRow["الكود"].ToString().Length >= 20 && Convert.ToDouble(selRow["الكرتنة"]) > 0)
+                        cartons = 0;
+                        if (selRow["الكود"].ToString().Length >= 20)
                         {
-                            if (cartonNumCheck())
-                            { }
-                            else
+                            string q = "select Carton from data where Code='" + selRow["الكود"].ToString() + "'";
+                            MySqlCommand c = new MySqlCommand(q, conn);
+                            if (c.ExecuteScalar() != null)
                             {
-                                conn.Close();
-                                return;
+                                if (Convert.ToDouble(c.ExecuteScalar().ToString()) > 0)
+                                {
+                                    if (cartonNumCheck())
+                                    { }
+                                    else
+                                    {
+                                        conn.Close();
+                                        return;
+                                    }
+                                }
                             }
                         }
 
@@ -102,8 +112,8 @@ namespace MainSystem
                                 double TotalMeters = Convert.ToDouble(comand.ExecuteScalar());*/
 
                                 //quantity <= TotalMeters
-                                
-                                string query = "update dash_details set Quantity=" + quantity + ", Store_ID=" + comStore.SelectedValue.ToString() + " , Store_Name='" + comStore.Text + "' where DashDetails_ID=" + Convert.ToInt16(selRow[0].ToString());
+
+                                string query = "update dash_details set Quantity=" + quantity + ",Cartons=" + cartons + ", Store_ID=" + comStore.SelectedValue.ToString() + " , Store_Name='" + comStore.Text + "' where DashDetails_ID=" + Convert.ToInt16(selRow[0].ToString());
                                 MySqlCommand comand = new MySqlCommand(query, conn);
                                 comand.ExecuteNonQuery();
 
@@ -151,11 +161,13 @@ namespace MainSystem
                     if (totalMeters % Carton == 0)
                     {
                         MessageBox.Show("تحتاج " + totalMeters / Carton + " كرتونة");
+                        cartons = (int)(totalMeters / Carton);
                         return true;
                     }
                     else
                     {
                         MessageBox.Show("تحتاج " + totalMeters / Carton + " كرتونة و " + totalMeters % Carton + " متر");
+                        cartons = 0;
                         return false;
                     }
                 }

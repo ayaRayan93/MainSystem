@@ -18,6 +18,7 @@ namespace MainSystem
         int rowHandel = 0;
         DataRowView selRow;
         MySqlConnection dbconnection;
+        int cartons = 0;
 
         public QuantityUpdate2Sales(int rowhandel, DataRowView Selrow)
         {
@@ -67,19 +68,28 @@ namespace MainSystem
                             return;
                         }
 
+                        cartons = 0;
                         if (selRow["الكود"].ToString().Length >= 20)
                         {
-                            if (cartonNumCheck())
-                            { }
-                            else
+                            string q = "select Carton from data where Code='" + selRow["الكود"].ToString() + "'";
+                            MySqlCommand c = new MySqlCommand(q, dbconnection);
+                            if (c.ExecuteScalar() != null)
                             {
-                                dbconnection.Close();
-                                return;
+                                if (Convert.ToDouble(c.ExecuteScalar().ToString()) > 0)
+                                {
+                                    if (cartonNumCheck())
+                                    { }
+                                    else
+                                    {
+                                        dbconnection.Close();
+                                        return;
+                                    }
+                                }
                             }
                         }
 
                         dbconnection.Close();
-                        MainForm.objFormBillConfirm.refreshView(rowHandel, quantity, Convert.ToInt16(comStore.SelectedValue.ToString()), comStore.Text);
+                        MainForm.objFormBillConfirm.refreshView(rowHandel, quantity, Convert.ToInt16(comStore.SelectedValue.ToString()), comStore.Text, cartons);
                         this.Close();
                     }
                     else
@@ -113,11 +123,13 @@ namespace MainSystem
                     if (totalMeters % Carton == 0)
                     {
                         MessageBox.Show("تحتاج " + totalMeters / Carton + " كرتونة");
+                        cartons = (int)(totalMeters / Carton);
                         return true;
                     }
                     else
                     {
                         MessageBox.Show("تحتاج " + totalMeters / Carton + " كرتونة و " + totalMeters % Carton + " متر");
+                        cartons = 0;
                         return false;
                     }
                 }

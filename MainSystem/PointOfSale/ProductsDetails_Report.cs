@@ -306,6 +306,7 @@ namespace MainSystem
                             string query = "delete from dash_details where DashDetails_ID=" + selRow[0].ToString();
                             MySqlCommand comand = new MySqlCommand(query, conn);
                             comand.ExecuteNonQuery();
+                            main.test(delegateID, billNum);
 
                             UserControl.ItemRecord("dash_details", "حذف", Convert.ToInt16(selRow[0].ToString()), DateTime.Now, textBox.Text, conn);
                         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -36,7 +37,7 @@
             this.bunifuTileButtonAddSpecialOrder = new Bunifu.Framework.UI.BunifuTileButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
@@ -663,7 +664,7 @@
             this.label15.Location = new System.Drawing.Point(655, 38);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label15.Size = new System.Drawing.Size(53, 19);
+            this.label15.Size = new System.Drawing.Size(54, 19);
             this.label15.TabIndex = 5;
             this.label15.Text = "المصنع";
             // 
@@ -674,7 +675,7 @@
             this.label13.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label13.Location = new System.Drawing.Point(268, 38);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 19);
+            this.label13.Size = new System.Drawing.Size(42, 19);
             this.label13.TabIndex = 16;
             this.label13.Text = "اللون";
             // 
@@ -686,7 +687,7 @@
             this.label14.Location = new System.Drawing.Point(454, 9);
             this.label14.Name = "label14";
             this.label14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label14.Size = new System.Drawing.Size(69, 19);
+            this.label14.Size = new System.Drawing.Size(71, 19);
             this.label14.TabIndex = 8;
             this.label14.Text = "المجموعة";
             // 
@@ -697,7 +698,7 @@
             this.label12.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label12.Location = new System.Drawing.Point(267, 9);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 19);
+            this.label12.Size = new System.Drawing.Size(58, 19);
             this.label12.TabIndex = 15;
             this.label12.Text = "المقاس";
             // 
@@ -719,7 +720,7 @@
             this.label11.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label11.Location = new System.Drawing.Point(121, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 19);
+            this.label11.Size = new System.Drawing.Size(36, 19);
             this.label11.TabIndex = 14;
             this.label11.Text = "الفرز";
             // 
@@ -742,7 +743,7 @@
             this.label7.Location = new System.Drawing.Point(666, 9);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(30, 19);
+            this.label7.Size = new System.Drawing.Size(31, 19);
             this.label7.TabIndex = 2;
             this.label7.Text = "نوع";
             // 

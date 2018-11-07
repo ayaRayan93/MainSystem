@@ -249,7 +249,7 @@ namespace MainSystem
                 tabPageProductsDetailsReport.Text = "تفاصيل فاتورة";
                 panelProductsDetailsReport.Name = "panelProductsDetailsReport";
                 panelProductsDetailsReport.Dock = DockStyle.Fill;
-
+                
                 ProductsDetailsReport = new ProductsDetails_Report(this, delegateID, billNum);
                 ProductsDetailsReport.Size = new Size(1109, 660);
                 ProductsDetailsReport.TopLevel = false;

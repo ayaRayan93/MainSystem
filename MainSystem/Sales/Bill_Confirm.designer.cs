@@ -59,14 +59,15 @@
             this.labTotalBillPriceBD = new System.Windows.Forms.Label();
             this.btnAddItem = new Bunifu.Framework.UI.BunifuTileButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.listBoxControlBranchID = new DevExpress.XtraEditors.ListBoxControl();
-            this.listBoxControlBills = new DevExpress.XtraEditors.ListBoxControl();
-            this.checkBoxAdd = new System.Windows.Forms.CheckBox();
-            this.comDelegate = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radDealer = new System.Windows.Forms.RadioButton();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.listBoxControlDelegateId = new DevExpress.XtraEditors.ListBoxControl();
+            this.listBoxControlBranchID = new DevExpress.XtraEditors.ListBoxControl();
+            this.checkBoxAdd = new System.Windows.Forms.CheckBox();
+            this.listBoxControlBills = new DevExpress.XtraEditors.ListBoxControl();
+            this.comDelegate = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -76,11 +77,12 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlDelegateId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControlBranchID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControlBills)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // labTotalBillPriceAD
@@ -536,50 +538,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1037, 134);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // listBoxControlBranchID
-            // 
-            this.listBoxControlBranchID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxControlBranchID.Location = new System.Drawing.Point(11, 46);
-            this.listBoxControlBranchID.Name = "listBoxControlBranchID";
-            this.listBoxControlBranchID.Size = new System.Drawing.Size(62, 68);
-            this.listBoxControlBranchID.TabIndex = 156;
-            this.listBoxControlBranchID.Visible = false;
-            // 
-            // listBoxControlBills
-            // 
-            this.listBoxControlBills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxControlBills.HorizontalScrollbar = true;
-            this.listBoxControlBills.Location = new System.Drawing.Point(79, 45);
-            this.listBoxControlBills.Name = "listBoxControlBills";
-            this.listBoxControlBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.listBoxControlBills.Size = new System.Drawing.Size(100, 69);
-            this.listBoxControlBills.TabIndex = 155;
-            // 
-            // checkBoxAdd
-            // 
-            this.checkBoxAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxAdd.AutoSize = true;
-            this.checkBoxAdd.BackColor = System.Drawing.Color.Gainsboro;
-            this.checkBoxAdd.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxAdd.Location = new System.Drawing.Point(11, 19);
-            this.checkBoxAdd.Name = "checkBoxAdd";
-            this.checkBoxAdd.Size = new System.Drawing.Size(62, 20);
-            this.checkBoxAdd.TabIndex = 153;
-            this.checkBoxAdd.Text = "+اخرى";
-            this.checkBoxAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxAdd.UseVisualStyleBackColor = false;
-            // 
-            // comDelegate
-            // 
-            this.comDelegate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comDelegate.Enabled = false;
-            this.comDelegate.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.comDelegate.FormattingEnabled = true;
-            this.comDelegate.Location = new System.Drawing.Point(224, 68);
-            this.comDelegate.Name = "comDelegate";
-            this.comDelegate.Size = new System.Drawing.Size(150, 24);
-            this.comDelegate.TabIndex = 152;
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
@@ -615,8 +573,18 @@
             this.radDealer.UseVisualStyleBackColor = true;
             this.radDealer.CheckedChanged += new System.EventHandler(this.radiotype_CheckedChanged);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(574, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(460, 128);
+            this.panel2.TabIndex = 150;
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.listBoxControlDelegateId);
             this.panel3.Controls.Add(this.listBoxControlBranchID);
             this.panel3.Controls.Add(this.checkBoxAdd);
             this.panel3.Controls.Add(this.listBoxControlBills);
@@ -631,14 +599,58 @@
             this.panel3.Size = new System.Drawing.Size(460, 121);
             this.panel3.TabIndex = 157;
             // 
-            // panel2
+            // listBoxControlDelegateId
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(574, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(460, 128);
-            this.panel2.TabIndex = 150;
+            this.listBoxControlDelegateId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxControlDelegateId.Location = new System.Drawing.Point(185, 45);
+            this.listBoxControlDelegateId.Name = "listBoxControlDelegateId";
+            this.listBoxControlDelegateId.Size = new System.Drawing.Size(33, 68);
+            this.listBoxControlDelegateId.TabIndex = 157;
+            this.listBoxControlDelegateId.Visible = false;
+            // 
+            // listBoxControlBranchID
+            // 
+            this.listBoxControlBranchID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxControlBranchID.Location = new System.Drawing.Point(11, 46);
+            this.listBoxControlBranchID.Name = "listBoxControlBranchID";
+            this.listBoxControlBranchID.Size = new System.Drawing.Size(62, 68);
+            this.listBoxControlBranchID.TabIndex = 156;
+            this.listBoxControlBranchID.Visible = false;
+            // 
+            // checkBoxAdd
+            // 
+            this.checkBoxAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxAdd.AutoSize = true;
+            this.checkBoxAdd.BackColor = System.Drawing.Color.Gainsboro;
+            this.checkBoxAdd.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxAdd.Location = new System.Drawing.Point(11, 19);
+            this.checkBoxAdd.Name = "checkBoxAdd";
+            this.checkBoxAdd.Size = new System.Drawing.Size(62, 20);
+            this.checkBoxAdd.TabIndex = 153;
+            this.checkBoxAdd.Text = "+اخرى";
+            this.checkBoxAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxAdd.UseVisualStyleBackColor = false;
+            // 
+            // listBoxControlBills
+            // 
+            this.listBoxControlBills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxControlBills.HorizontalScrollbar = true;
+            this.listBoxControlBills.Location = new System.Drawing.Point(79, 45);
+            this.listBoxControlBills.Name = "listBoxControlBills";
+            this.listBoxControlBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.listBoxControlBills.Size = new System.Drawing.Size(100, 69);
+            this.listBoxControlBills.TabIndex = 155;
+            // 
+            // comDelegate
+            // 
+            this.comDelegate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comDelegate.Enabled = false;
+            this.comDelegate.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comDelegate.FormattingEnabled = true;
+            this.comDelegate.Location = new System.Drawing.Point(224, 68);
+            this.comDelegate.Name = "comDelegate";
+            this.comDelegate.Size = new System.Drawing.Size(150, 24);
+            this.comDelegate.TabIndex = 152;
             // 
             // Bill_Confirm
             // 
@@ -663,13 +675,14 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlBranchID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlBills)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlDelegateId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlBranchID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlBills)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -714,6 +727,7 @@
         private DevExpress.XtraEditors.ListBoxControl listBoxControlBranchID;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControlDelegateId;
     }
 }
 
