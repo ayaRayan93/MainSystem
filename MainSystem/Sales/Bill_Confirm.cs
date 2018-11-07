@@ -483,6 +483,25 @@ namespace MainSystem
                     return;
                 GridView view = gridView1 as GridView;
                 view.DeleteRow(view.FocusedRowHandle);
+
+                double sum = 0;
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    sum += Convert.ToDouble(gridView1.GetRowCellDisplayText(i, "الاجمالى").ToString());
+                }
+                labTotalBillPriceBD.Text = "اجمالى الفاتورة = " + sum.ToString();
+
+                double discount = 0;
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    if (gridView1.GetRowCellDisplayText(i, "الخصم").ToString() != "")
+                    {
+                        discount += Convert.ToDouble(gridView1.GetRowCellDisplayText(i, "الخصم").ToString());
+                    }
+                }
+                labTotalDiscount.Text = "اجمالى الخصم = " + discount.ToString();
+
+                labTotalBillPriceAD.Text = "صافى الفاتورة = " + (sum - discount).ToString();
             }
             catch(Exception ex)
             {
