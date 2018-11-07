@@ -36,7 +36,10 @@ namespace MainSystem
         {
             RadioButton radio = (RadioButton)sender;
             Customer_Type = radio.Text;
-
+            comClient.Text = "";
+            txtClientID.Text = "";
+            comEngCon.Text = "";
+            txtCustomerID.Text = "";
             loaded = false; //this is flag to prevent action of SelectedValueChanged event until datasource fill combobox
             try
             {
@@ -57,7 +60,7 @@ namespace MainSystem
                     comClient.DisplayMember = dt.Columns["Customer_Name"].ToString();
                     comClient.ValueMember = dt.Columns["Customer_ID"].ToString();
                     comClient.Text = "";
-                    comEngCon.Text = "";
+                    txtClientID.Text = "";
                 }
                 else
                 {
@@ -75,8 +78,8 @@ namespace MainSystem
                     comEngCon.DataSource = dt;
                     comEngCon.DisplayMember = dt.Columns["Customer_Name"].ToString();
                     comEngCon.ValueMember = dt.Columns["Customer_ID"].ToString();
-                    comClient.Text = "";
                     comEngCon.Text = "";
+                    txtCustomerID.Text = "";
                 }
 
                 loaded = true;
@@ -108,6 +111,7 @@ namespace MainSystem
             {
                 try
                 {
+                    loaded = false;
                     txtCustomerID.Text = comEngCon.SelectedValue.ToString();
                     labelClient.Visible = true;
                     comClient.Visible = true;
@@ -121,6 +125,9 @@ namespace MainSystem
                     comClient.DisplayMember = dt.Columns["Customer_Name"].ToString();
                     comClient.ValueMember = dt.Columns["Customer_ID"].ToString();
                     comClient.Text = "";
+                    txtClientID.Text = "";
+                    loaded = true;
+
                 }
                 catch (Exception ex)
                 {
@@ -128,7 +135,6 @@ namespace MainSystem
                 }
             }
         }
-
         private void txtBox_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -190,7 +196,6 @@ namespace MainSystem
                 dbconnection.Close();
             }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -199,21 +204,19 @@ namespace MainSystem
                 dbconnection1.Open();
                 dataGridView1.Rows.Clear();
              
-                    displayBill();
-                   // displayReturnBill();
-                  //  displayPaidBill();
-                    double totalBill=0, TotalReturn = 0,rest=0;
+                displayBill();
+                double totalBill=0, TotalReturn = 0,rest=0;
 
-                    foreach (DataGridViewRow row1 in dataGridView1.Rows)
-                    {
-                        totalBill += Convert.ToDouble(row1.Cells[0].Value);
-                        TotalReturn += Convert.ToDouble(row1.Cells[1].Value);
-                        rest = totalBill - TotalReturn;
-                    }
+                foreach (DataGridViewRow row1 in dataGridView1.Rows)
+                {
+                    totalBill += Convert.ToDouble(row1.Cells[0].Value);
+                    TotalReturn += Convert.ToDouble(row1.Cells[1].Value);
+                    rest = totalBill - TotalReturn;
+                }
 
-                    labTotalBillCost.Text = totalBill.ToString();
-                    labTotalReturnCost.Text = TotalReturn.ToString();
-                    labRest.Text = rest.ToString();
+                labTotalBillCost.Text = totalBill.ToString();
+                labTotalReturnCost.Text = TotalReturn.ToString();
+                labRest.Text = rest.ToString();
                 
             }
             catch (Exception ex)
@@ -280,100 +283,6 @@ namespace MainSystem
             }
             dr.Close();
         }
-
-        // display Customer return bills
-        public void displayReturnBill()
-        {
-            string query = "";
-            if (txtClientID.Text != "" && txtCustomerID.Text != "")
-            {
-                query = "select sum(TotalCostAD) from customer_return_bill where Client_ID='" + txtClientID.Text + "' and Customer_ID='" + txtCustomerID.Text + "'  group by Client_ID,Customer_ID";
-            }
-            else if (txtClientID.Text == "" && txtCustomerID.Text != "")
-            {
-                query = "select sum(TotalCostAD) from customer_return_bill where  Customer_ID='" + txtCustomerID.Text + "'  group by Customer_ID";
-
-            }
-            else if (txtClientID.Text != "" && txtCustomerID.Text == "")
-            {
-                query = "select sum(TotalCostAD) from customer_return_bill where Client_ID='" + txtClientID.Text + "' and Customer_ID is null  group by Client_ID";
-            }
-            else
-            {
-                query = "select sum(TotalCostAD),Customer_ID,Client_ID from customer_return_bill  group by Client_ID";
-            }
-            MySqlCommand com = new MySqlCommand(query, dbconnection1);
-            MySqlDataReader dr = com.ExecuteReader();
-
-            while (dr.Read())
-            {
-                int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[0].Value = "0.00";
-                dataGridView1.Rows[n].Cells[1].Value = dr["sum(TotalCostAD)"].ToString();
-                if (dr["Customer_ID"].ToString() != "")
-                {
-                    String q = "select Customer_Name from customer where Customer_ID=" + dr["Customer_ID"].ToString();
-                    MySqlCommand com1 = new MySqlCommand(q, dbconnection);
-                    string Customer_Name = com1.ExecuteScalar().ToString();
-                    dataGridView1.Rows[n].Cells[2].Value = Customer_Name;
-                }
-                else
-                {
-                    dataGridView1.Rows[n].Cells[2].Value = "";
-                }
-                if (dr["Client_ID"].ToString() != "")
-                {
-                    String q = "select Customer_Name from customer where Customer_ID=" + dr["Client_ID"].ToString();
-                    MySqlCommand com1 = new MySqlCommand(q, dbconnection);
-                    string Customer_Name = com1.ExecuteScalar().ToString();
-                    dataGridView1.Rows[n].Cells[3].Value = Customer_Name;
-                }
-                else
-                {
-                    dataGridView1.Rows[n].Cells[3].Value = "";
-                }
-
-                
-            }
-            dr.Close();
-        }
-
-        // display Customer Paid bills
-        public void displayPaidBill()
-        {
-            string query = "";
-            if (txtClientID.Text != "" && txtCustomerID.Text != "")
-            {
-                query = "select * from transitions where Client_ID=" + txtClientID.Text + " and Customer_ID='" + txtCustomerID.Text + "'";
-            }
-            else if (txtClientID.Text == "" && txtCustomerID.Text != "")
-            {
-                query = "select * from transitions where Customer_ID='" + txtCustomerID.Text + "' ";
-            }
-            else
-            {
-                query = "select * from transitions where Client_ID='" + txtClientID.Text + "'";
-
-            }
-            MySqlCommand com = new MySqlCommand(query, dbconnection1);
-            MySqlDataReader dr = com.ExecuteReader();
-
-            while (dr.Read())
-            {
-                int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[0].Value = "0.00";
-                dataGridView1.Rows[n].Cells[1].Value = dr["Transition_Amount"].ToString();
-                dataGridView1.Rows[n].Cells[2].Value = dr["Transition_ID"].ToString();
-                dataGridView1.Rows[n].Cells[3].Value = dr["Beneficiary_Name"].ToString();
-                dataGridView1.Rows[n].Cells[4].Value = "";
-                dataGridView1.Rows[n].Cells[5].Value = dr["Transition_Date"].ToString();
-            }
-            dr.Close();
-        }
-
-      
-
-
-      
+        
     }
 }
