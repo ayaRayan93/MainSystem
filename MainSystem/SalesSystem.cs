@@ -355,11 +355,11 @@ namespace MainSystem
                 if (!xtraTabControlSalesContent.Visible)
                     xtraTabControlSalesContent.Visible = true;
 
-                XtraTabPage xtraTabPage = getTabPage("كشف حسابات العملاء");
+                XtraTabPage xtraTabPage = getTabPage("كشف حساب عميل");
                 if (xtraTabPage == null)
                 {
-                    xtraTabControlSalesContent.TabPages.Add("كشف حسابات العملاء");
-                    xtraTabPage = getTabPage("كشف حسابات العملاء");
+                    xtraTabControlSalesContent.TabPages.Add("كشف حساب عميل");
+                    xtraTabPage = getTabPage("كشف حساب عميل");
                 }
                 xtraTabPage.Controls.Clear();
 
@@ -403,6 +403,34 @@ namespace MainSystem
                 checkPaidBillsForm objForm = new checkPaidBillsForm();
                 objForm.TopLevel = false;
 
+                xtraTabPage.Controls.Add(objForm);
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void btnCustomerTaswaya_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (!xtraTabControlSalesContent.Visible)
+                    xtraTabControlSalesContent.Visible = true;
+
+                XtraTabPage xtraTabPage = getTabPage("تسوية عميل");
+                if (xtraTabPage == null)
+                {
+                    xtraTabControlSalesContent.TabPages.Add("تسوية عميل");
+                    xtraTabPage = getTabPage("تسوية عميل");
+                }
+                xtraTabPage.Controls.Clear();
+                xtraTabControlSalesContent.SelectedTabPage = xtraTabPage;
+
+                CustomerTaswaya objForm = new CustomerTaswaya();
+                objForm.TopLevel = false;
                 xtraTabPage.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 objForm.Dock = DockStyle.Fill;

@@ -22,6 +22,27 @@ namespace MainSystem.Sales.accounting
         int ClientID = -1;
         string ClientName = "";
         string customerID="", clientID="";
+        public CustomerTaswaya()
+        {
+            try
+            {
+                InitializeComponent();
+                dbconnection = new MySqlConnection(connection.connectionString);
+                dbconnection1 = new MySqlConnection(connection.connectionString);
+                labelClient.Visible = false;
+                labelEng.Visible = false;//label of مهندس/مقاول
+                comClient.Visible = false;
+                comEngCon.Visible = false;
+                txtCustomerID.Visible = false;
+                txtClientID.Visible = false;
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
         public CustomerTaswaya(string customerType, string customerID, string clientID)
         {
             try

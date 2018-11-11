@@ -291,31 +291,8 @@ namespace MainSystem
                 dataGridView1.Rows[n].Cells[0].Value = dr["Total_CostAD"].ToString();
                 dataGridView1.Rows[n].Cells[1].Value = "0.00";
                 dataGridView1.Rows[n].Cells[2].Value = dr["CustomerBill_ID"].ToString();
-                if (txtCustomerID.Text != "")
-                {
-                    String q = "select Customer_Name from customer where Customer_ID=" + dr["Customer_ID"].ToString();
-                    MySqlCommand com1 = new MySqlCommand(q, dbconnection);
-                    string Customer_Name = com1.ExecuteScalar().ToString();
-                    dataGridView1.Rows[n].Cells[3].Value = Customer_Name;
-                }
-                else
-                {
-                    dataGridView1.Rows[n].Cells[3].Value = "";
-                }
-                if (txtClientID.Text != "")
-                {
-                    String q = "select Customer_Name from customer where Customer_ID=" + dr["Client_ID"].ToString();
-                    MySqlCommand com1 = new MySqlCommand(q, dbconnection);
-                    string Customer_Name = com1.ExecuteScalar().ToString();
-                    dataGridView1.Rows[n].Cells[4].Value = Customer_Name;
-                }
-                else
-                {
-                    dataGridView1.Rows[n].Cells[4].Value = "";
-                }
-
-
-                dataGridView1.Rows[n].Cells[5].Value = dr["Bill_Date"].ToString();
+                dataGridView1.Rows[n].Cells[3].Value = dr["Type_Buy"].ToString();
+                dataGridView1.Rows[n].Cells[4].Value = dr["Bill_Date"].ToString();
             }
             dr.Close();
         }
@@ -348,31 +325,8 @@ namespace MainSystem
                 datagridview.Rows[n].Cells[0].Value = "0.00";
                 datagridview.Rows[n].Cells[1].Value = dr["TotalCostAD"].ToString();
                 datagridview.Rows[n].Cells[2].Value = dr["CustomerReturnBill_ID"].ToString();
-                if (txtCustomerID.Text != "")
-                {
-                    String q = "select Customer_Name from customer where Customer_ID=" + dr["Customer_ID"].ToString();
-                    MySqlCommand com1 = new MySqlCommand(q, dbconnection);
-                    string Customer_Name = com1.ExecuteScalar().ToString();
-                    datagridview.Rows[n].Cells[3].Value = Customer_Name;
-                }
-                else
-                {
-                    datagridview.Rows[n].Cells[3].Value = "";
-                }
-                if (txtClientID.Text != "")
-                {
-                    String q = "select Customer_Name from customer where Customer_ID=" + dr["Client_ID"].ToString();
-                    MySqlCommand com1 = new MySqlCommand(q, dbconnection);
-                    string Customer_Name = com1.ExecuteScalar().ToString();
-                    datagridview.Rows[n].Cells[4].Value = Customer_Name;
-                }
-                else
-                {
-                    datagridview.Rows[n].Cells[4].Value = "";
-                }
-
-
-                datagridview.Rows[n].Cells[5].Value = dr["Date"].ToString();
+                datagridview.Rows[n].Cells[3].Value = dr["Type_Buy"].ToString();
+                datagridview.Rows[n].Cells[4].Value = dr["Date"].ToString();
             }
             dr.Close();
         }
@@ -409,12 +363,11 @@ namespace MainSystem
             while (dr.Read())
             {
                 int n = dataGridView2.Rows.Add();
-                dataGridView2.Rows[n].Cells[0].Value = dr["Transition_Amount"].ToString();
+                dataGridView2.Rows[n].Cells[0].Value = dr["Amount"].ToString();
                 dataGridView2.Rows[n].Cells[1].Value = "0.00";
                 dataGridView2.Rows[n].Cells[2].Value = dr["Transition_ID"].ToString();
-                dataGridView2.Rows[n].Cells[3].Value = dr["Beneficiary_Name"].ToString();
-                dataGridView2.Rows[n].Cells[4].Value = dr["Type"].ToString();
-                dataGridView2.Rows[n].Cells[5].Value = dr["Date"].ToString();
+                dataGridView2.Rows[n].Cells[3].Value = dr["Type"].ToString();
+                dataGridView2.Rows[n].Cells[4].Value = dr["Date"].ToString();
             }
             dr.Close();
             com = new MySqlCommand(query1, dbconnection1);
@@ -426,9 +379,8 @@ namespace MainSystem
                 dataGridView2.Rows[n].Cells[0].Value = dr["Money_Paid"].ToString();
                 dataGridView2.Rows[n].Cells[1].Value = "0.00";
                 dataGridView2.Rows[n].Cells[2].Value = "تسوية";
-                dataGridView2.Rows[n].Cells[3].Value = Name;
-                dataGridView2.Rows[n].Cells[4].Value = dr["Taswaya_Type"].ToString();
-                dataGridView2.Rows[n].Cells[5].Value = dr["Date"].ToString();
+                dataGridView2.Rows[n].Cells[3].Value = dr["Taswaya_Type"].ToString();
+                dataGridView2.Rows[n].Cells[4].Value = dr["Date"].ToString();
             }
             dr.Close();
         }
@@ -465,10 +417,9 @@ namespace MainSystem
             {
                 int n = dataGridView2.Rows.Add();
                 dataGridView2.Rows[n].Cells[0].Value = "0.00";
-                dataGridView2.Rows[n].Cells[1].Value = dr["Transition_Amount"].ToString();
+                dataGridView2.Rows[n].Cells[1].Value = dr["Amount"].ToString();
                 dataGridView2.Rows[n].Cells[2].Value = dr["Transition_ID"].ToString();
-                dataGridView2.Rows[n].Cells[3].Value = dr["Beneficiary_Name"].ToString();
-                dataGridView2.Rows[n].Cells[4].Value = dr["Type"].ToString();
+                dataGridView2.Rows[n].Cells[3].Value = dr["Type"].ToString();
                 dataGridView2.Rows[n].Cells[4].Value = dr["Date"].ToString();
             }
             dr.Close();
@@ -478,12 +429,11 @@ namespace MainSystem
             while (dr.Read())
             {
                 int n = dataGridView2.Rows.Add();
-                dataGridView2.Rows[n].Cells[0].Value = dr["Money_Paid"].ToString();
-                dataGridView2.Rows[n].Cells[1].Value = "0.00";
+                dataGridView2.Rows[n].Cells[0].Value = "0.00";
+                dataGridView2.Rows[n].Cells[1].Value =  dr["Money_Paid"].ToString();
                 dataGridView2.Rows[n].Cells[2].Value = "تسوية";
-                dataGridView2.Rows[n].Cells[3].Value = Name;
-                dataGridView2.Rows[n].Cells[4].Value = dr["Taswaya_Type"].ToString();
-                dataGridView2.Rows[n].Cells[5].Value = dr["Date"].ToString();
+                dataGridView2.Rows[n].Cells[3].Value = dr["Taswaya_Type"].ToString();
+                dataGridView2.Rows[n].Cells[4].Value = dr["Date"].ToString();
             }
             dr.Close();
         }
